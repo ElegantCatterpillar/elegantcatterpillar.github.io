@@ -1,0 +1,14 @@
+{
+	"couples": [
+		{
+			"name": "Oscar Oswaldo Garcia Martinez",
+			"description": "El novio",
+			"thumb": "/casamiento/couples/couple-male.jpg"
+		},
+		{
+			"name": "Jamil Fabiola Alvarado Sanchez",
+			"description": "La novia",
+			"thumb": "/casamiento/couples/couple-female.jpg"
+		}
+	]
+}

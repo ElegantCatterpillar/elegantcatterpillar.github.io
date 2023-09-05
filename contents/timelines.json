@@ -1,0 +1,22 @@
+{
+	"timelines": [
+		{
+			"title": "Ceremonia Religiosa",
+			"date": "Sabado, 28 de Octubre 2023",
+			"time": "4:00 PM - 5:00 PM",
+			"location": "Catedral Metropolitana de Nuestra Señora de la Asunción",
+			"address": "Miguel Hidalgo, Centro Norte",
+			"mapUrl": "https://goo.gl/maps/bpyaz3UoDJmZ4BSBA",
+			"imgUrl": "/src/assets/images/catedral1.jpg"
+		},
+		{
+			"title": "Fiesta",
+			"date": "Sabado, 28 de Octubre 2023",
+			"time": "9:00 PM - 2:00 AM",
+			"location": "Jardin Lago Azul",
+			"address": "Carretera a real del alamito, 17, El Alamito Buenavista",
+			"mapUrl": "https://goo.gl/maps/cREN9SXKZ9wPQQfG7",
+			"imgUrl": "/src/assets/images/jardinlagoazul3.jpg"
+		}
+	]
+}
