@@ -1,11 +1,14 @@
 <template>
-  <button @click="toggleColorMode" class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-gray-800 dark:hover:bg-gray-700">
+  <Button @click="toggleColorMode" label="Click" class="px-4 py-2 rounded-md"/>
+  <button @click="toggleColorMode"
+    class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-gray-800 dark:hover:bg-gray-700">
     <span v-if="colorMode.preference === 'light'">🌙 Dark Mode</span>
     <span v-else>☀️ Light Mode</span>
   </button>
   <div class="mt-4">
     <h1 class="text-lg font-semibold">Color mode: {{ $colorMode.value }}</h1>
-    <select v-model="$colorMode.preference" class="px-4 py-2 rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600">
+    <select v-model="$colorMode.preference"
+      class="px-4 py-2 rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600">
       <option value="system">System</option>
       <option value="light">Light</option>
       <option value="dark">Dark</option>
