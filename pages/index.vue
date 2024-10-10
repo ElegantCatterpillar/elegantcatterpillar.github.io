@@ -1,0 +1,10 @@
+<template>
+    <div class="p-8">
+      <h1 class="text-3xl font-bold mb-4">Bienvenido a Nuxt con Tailwind y Color Mode</h1>
+      <ColorModeToggle />
+    </div>
+  </template>
+  
+  <script setup>
+  import ColorModeToggle from '~/components/ColorModeToggle.vue'
+  </script>
