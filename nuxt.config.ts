@@ -9,6 +9,8 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   colorMode: {
     classSuffix: "",
+    storage: "cookie",
+    storageKey: "user-theme"
   },
   primevue: {
     options: {
@@ -18,7 +20,7 @@ export default defineNuxtConfig({
           darkModeSelector: ".dark", // Usar la clase 'dark' de Tailwind CSS
           cssLayer: {
               name: 'primevue',
-              order: 'tailwind-base, primevue, tailwind-utilities'
+              order: 'primevue, tailwind-utilities, tailwind-base'
           }
         },
       },
