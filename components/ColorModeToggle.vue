@@ -23,7 +23,6 @@
 
 <script setup>
 const colorMode = useColorMode()
-console.log(colorMode.preference)
 
 const optionsColors = [
   { label: 'System', value: 'system' },

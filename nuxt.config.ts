@@ -5,13 +5,17 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@primevue/nuxt-module",
+    "@nuxtjs/i18n",
   ],
+
   css: ["~/assets/css/main.css"],
+
   colorMode: {
     classSuffix: "",
     storage: "cookie",
     storageKey: "user-theme"
   },
+
   primevue: {
     options: {
       theme: {
@@ -28,4 +32,16 @@ export default defineNuxtConfig({
     },
     autoImport: true,
   },
+
+  i18n: {
+    vueI18n: './locales/i18n.config.ts',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'user_language',
+      redirectOn: 'root',
+      cookieSecure: true
+    }
+  },
+
+  compatibilityDate: "2024-10-21"
 });

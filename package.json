@@ -19,5 +19,8 @@
     "primevue": "^4.1.0",
     "vue": "latest",
     "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@nuxtjs/i18n": "^8.5.5"
   }
 }
