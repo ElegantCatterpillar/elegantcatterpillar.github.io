@@ -1,0 +1,10 @@
+{
+    "welcome": "Bienvenido",
+    "selectTheme": "Selecciona tu tema",
+    "availableThemes": "Temas disponibles",
+    "selectLanguage": "Selecciona tu idioma",
+    "availableLocales": "Idiomas disponibles",
+    "dark": "Oscuro",
+    "light": "Claro",
+    "system": "Sistema"
+}

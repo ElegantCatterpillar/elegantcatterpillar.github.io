@@ -1,0 +1,10 @@
+{
+    "welcome": "Welcome",
+    "selectTheme": "Select your theme",
+    "availableThemes": "Available themes",
+    "selectLanguage": "Select your language",
+    "availableLocales": "Available languages",
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System"
+}

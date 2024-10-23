@@ -8,12 +8,14 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
   ],
 
+  plugins: ["~/plugins/Vue3Lottie.client.ts"],
+
   css: ["~/assets/css/main.css"],
 
   colorMode: {
     classSuffix: "",
     storage: "cookie",
-    storageKey: "user-theme"
+    storageKey: "user-theme",
   },
 
   primevue: {
@@ -23,9 +25,9 @@ export default defineNuxtConfig({
         options: {
           darkModeSelector: ".dark", // Usar la clase 'dark' de Tailwind CSS
           cssLayer: {
-              name: 'primevue',
-              order: 'primevue, tailwind-utilities, tailwind-base'
-          }
+            name: "primevue",
+            order: "primevue, tailwind-utilities, tailwind-base",
+          },
         },
       },
       ripple: true,
@@ -34,14 +36,32 @@ export default defineNuxtConfig({
   },
 
   i18n: {
-    vueI18n: './locales/i18n.config.ts',
+    defaultLocale: "es", // Idioma predeterminado
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'user_language',
-      redirectOn: 'root',
-      cookieSecure: true
-    }
+      cookieKey: "user_language",
+      cookieSecure: process.env.NODE_ENV === "production",
+      cookieCrossOrigin: true
+    },
+    lazy: true,
+    langDir: "locales",
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        iso: "US",
+        language: "en-US",
+        file: "en.json",
+      },
+      {
+        code: "es",
+        name: "Español",
+        language: "es-MX",
+        iso: "MX",
+        file: "es.json",
+      },
+    ]
   },
 
-  compatibilityDate: "2024-10-21"
+  compatibilityDate: "2024-10-21",
 });

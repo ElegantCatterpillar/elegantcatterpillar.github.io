@@ -1,49 +1,54 @@
 <template>
-  <Button @click="updateLocale" :label="locale === 'en' ? 'Español' : 'English'" class="px-4 py-2 rounded-md bg-green-500 hover:bg-green-600 mr-4" />
-  <button @click="updateLocale"
-    class="px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <span v-if="locale === 'en'">Español</span>
-    <span v-else>English</span>
-  </button>
-  <div class="mt-4">
-    <h1 class="text-lg font-semibold">Locale: {{ locale }}</h1>
-    <select
-      v-model="selectedLocale"
-      class="px-4 py-2 rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 mr-4">
-      <option value="en">English</option>
-      <option value="es">Español</option>
-    </select>
-
-    <Select v-model="selectedLocale" :options="localeOptions" option-label="label" placeholder="Select your locale" option-value="value"
-      class="px-4 rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600">
-    </Select>
-  </div>
+  <Select
+    v-model="selectedLocale"
+    @change="selectLanguage"
+    :options="locales"
+    :placeholder="$t('selectLanguage')"
+    class="rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 mr-4 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    <template #header>
+      <div class="font-medium p-3">{{ $t("availableLocales") }}</div>
+    </template>
+    <template #value="slotProps">
+      <div class="flex">
+        <img
+          :alt="`${slotProps.value.code}-${slotProps.value.language}`"
+          :src="getFlagFromAPI(slotProps.value.language)"
+        />
+        <span class="ml-2">{{ slotProps.value.name }}</span>
+      </div>
+    </template>
+    <template #option="slotProps">
+      <img
+        :alt="`${slotProps.option.code}-${slotProps.option.language}`"
+        :src="getFlagFromAPI(slotProps.option.language)"
+      />
+      <span class="ml-2">{{ slotProps.option.name }}</span>
+    </template>
+  </Select>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-const { locale, setLocale } = useI18n()
+const { locale, locales, setLocale } = useI18n();
+const currentLocale = ref(
+  locales.value.filter((l) => l.code === locale.value)[0]
+);
 
-const selectedLocale = ref(locale.value)
+const selectedLocale = ref(currentLocale);
 
-const localeOptions = [
-  { label: 'English', value: 'en' },
-  { label: 'Español', value: 'es' }
-]
+const getFlagFromAPI = (countryCode) => {
+  return `https://flagsapi.com/${countryCode}/shiny/24.png`;
+};
 
-const updateLocale = () => {
-  const newLocale = locale.value === 'en' ? 'es' : 'en'
-  console.log(newLocale)
-  toggleLocale(newLocale)
-}
+const selectLanguage = ({ originalEvent, value }) => {
+  originalEvent.preventDefault();
 
-watch(selectedLocale, (value) => {
-  if (value === locale.value) return
+  // Cambia el tema basado en la selección
+  changeLanguage(value.code);
+};
 
-  toggleLocale(value)
-})
-
-const toggleLocale = (value) => {
-  setLocale(value)
-}
+const changeLanguage = (value) => {
+  if (locale.value === value) return;
+  setLocale(value);
+};
 </script>
