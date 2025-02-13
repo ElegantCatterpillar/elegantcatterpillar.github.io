@@ -12,16 +12,16 @@
     <template #value="slotProps">
       <div class="flex">
         <img
-          :alt="`${slotProps.value.code}-${slotProps.value.language}`"
-          :src="getFlagFromAPI(slotProps.value.language)"
+          :alt="`${slotProps.value.code}`"
+          :src="getFlagFromAPI(slotProps.value.flag)"
         />
         <span class="ml-2">{{ slotProps.value.name }}</span>
       </div>
     </template>
     <template #option="slotProps">
       <img
-        :alt="`${slotProps.option.code}-${slotProps.option.language}`"
-        :src="getFlagFromAPI(slotProps.option.language)"
+        :alt="`${slotProps.option.code}`"
+        :src="getFlagFromAPI(slotProps.option.flag)"
       />
       <span class="ml-2">{{ slotProps.option.name }}</span>
     </template>
@@ -37,7 +37,9 @@ const currentLocale = ref(
 const selectedLocale = ref(currentLocale);
 
 const getFlagFromAPI = (countryCode) => {
-  return `https://flagsapi.com/${countryCode}/shiny/24.png`;
+  const url = `https://flagsapi.com/${countryCode}/shiny/24.png`;
+  console.log(url); // Verifica la URL generada
+  return url;
 };
 
 const selectLanguage = ({ originalEvent, value }) => {
