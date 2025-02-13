@@ -5,12 +5,13 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "clean": "nuxt cleanup",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/color-mode": "^3.5.1",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@primevue/nuxt-module": "^4.1.0",
     "@primevue/themes": "^4.1.0",

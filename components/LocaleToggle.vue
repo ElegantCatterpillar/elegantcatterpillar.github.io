@@ -38,7 +38,6 @@ const selectedLocale = ref(currentLocale);
 
 const getFlagFromAPI = (countryCode) => {
   const url = `https://flagsapi.com/${countryCode}/shiny/24.png`;
-  console.log(url); // Verifica la URL generada
   return url;
 };
 
