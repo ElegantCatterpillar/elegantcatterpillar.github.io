@@ -27,7 +27,7 @@
       <template #value="slotProps">
         <span v-if="slotProps.value === 'light'">☀️ {{ $t("light") }}</span>
         <span v-else-if="slotProps.value === 'dark'">🌙 {{ $t("dark") }}</span>
-        <span v-else>🖥️ System</span>
+        <span v-else>🖥️ {{ $t("system") }}</span>
       </template>
       <template #option="slotProps">
         <div class="flex gap-2">
