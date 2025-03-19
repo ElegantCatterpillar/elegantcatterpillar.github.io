@@ -1,7 +1,5 @@
 <template>
   <div class="p-8 flex gap-4">
-    <ColorModeToggle />
-    <LocaleToggle />
   </div>
 </template>
 

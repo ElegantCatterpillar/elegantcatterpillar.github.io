@@ -22,7 +22,7 @@
       optionValue="value"
       optionLabel="label"
       @change="selectColorMode"
-      class="rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 mr-4 disabled:opacity-50 disabled:cursor-not-allowed"
+      class="rounded-md bg-white text-gray-800 border border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
     >
       <template #value="slotProps">
         <span v-if="slotProps.value === 'light'">☀️ {{ $t("light") }}</span>

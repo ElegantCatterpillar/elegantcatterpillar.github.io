@@ -10,7 +10,9 @@ export default defineNuxtConfig({
 
   plugins: ["~/plugins/Vue3Lottie.client.ts"],
 
-  css: ["~/assets/css/main.css"],
+  css: [
+    "~/assets/css/main.css",
+  ],
 
   colorMode: {
     classSuffix: "",
