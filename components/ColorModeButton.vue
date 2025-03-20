@@ -6,43 +6,67 @@
         class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-100 ease-in-out sm:h-[45px] sm:hover:gap-2"
       >
         <!-- Tema LIGHT -->
-        <Button
-          icon="pi pi-sun"
-          class="px-4 py-2"
-          :class="{
-            'dark:bg-zinc-900/50 text-dark border border-black/5 shadow-2xl':
-              selectedTheme === 'light',
-            'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
-              selectedTheme !== 'light',
-          }"
-          @click="changeTheme('light')"
-        />
+        <div class="flex flex-col items-center relative">
+          <Button
+            icon="pi pi-sun"
+            class="px-4 py-2"
+            :class="{
+              'dark:bg-zinc-900/50 text-dark border border-black/5 shadow-2xl':
+                selectedTheme === 'light',
+              'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
+                selectedTheme !== 'light',
+            }"
+            @click="changeTheme('light')"
+          />
+
+          <!-- Línea simulada -->
+          <div
+            v-if="selectedTheme === 'light'"
+            class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
+          ></div>
+        </div>
 
         <!-- Tema AUTO -->
-        <Button
-          icon="pi pi-desktop"
-          class="px-4 py-2"
-          :class="{
-            'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
-              selectedTheme === 'system',
-            'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
-              selectedTheme !== 'system',
-          }"
-          @click="changeTheme('system')"
-        />
+        <div class="flex flex-col items-center relative">
+          <Button
+            icon="pi pi-desktop"
+            class="px-4 py-2"
+            :class="{
+              'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
+                selectedTheme === 'system',
+              'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
+                selectedTheme !== 'system',
+            }"
+            @click="changeTheme('system')"
+          />
+
+          <!-- Línea simulada -->
+          <div
+            v-if="selectedTheme === 'system'"
+            class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
+          ></div>
+        </div>
 
         <!-- Tema DARK -->
-        <Button
-          icon="pi pi-moon"
-          class="px-4 py-2"
-          :class="{
-            'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
-              selectedTheme === 'dark',
-            'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
-              selectedTheme !== 'dark',
-          }"
-          @click="changeTheme('dark')"
-        />
+        <div class="flex flex-col items-center relative">
+          <Button
+            icon="pi pi-moon"
+            class="px-4 py-2"
+            :class="{
+              'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
+                selectedTheme === 'dark',
+              'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
+                selectedTheme !== 'dark',
+            }"
+            @click="changeTheme('dark')"
+          />
+
+          <!-- Línea simulada -->
+          <div
+            v-if="selectedTheme === 'dark'"
+            class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
+          ></div>
+        </div>
       </nav>
     </SpotlightButton>
 

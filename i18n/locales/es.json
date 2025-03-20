@@ -6,5 +6,10 @@
     "availableLocales": "Idiomas disponibles",
     "dark": "Oscuro",
     "light": "Claro",
-    "system": "Sistema"
+    "system": "Sistema",
+    "home": "Inicio",
+    "works": "Proyectos",
+    "writing": "Blog",
+    "about": "Sobre mí",
+    "contact": "Contacto"
 }

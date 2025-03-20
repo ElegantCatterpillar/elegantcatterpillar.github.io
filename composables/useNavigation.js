@@ -1,27 +1,32 @@
 export const getNavigation = [
     {
-        name: "Home",
+        name: "home",
         to: "/",
         icon: "pi pi-home",
+        show: true
       },
       {
-        name: "Works",
+        name: "works",
         to: "/works",
         icon: "pi pi-briefcase",
+        show: true
       },
-    //   {
-    //     name: "Writing",
-    //     to: "/writing",
-    //     icon: "pi pi-book",
-    //   },
       {
-        name: "About",
+        name: "writing",
+        to: "/writing",
+        icon: "pi pi-book",
+        show: false
+      },
+      {
+        name: "about",
         to: "/about",
         icon: "pi pi-user",
+        show: true
       },
       {
-        name: "Contact",
+        name: "contact",
         to: "/contact",
         icon: "pi pi-envelope",
+        show: true
       },
 ];

@@ -1,9 +1,5 @@
 <template>
-  <SpotlightButton
-    rounded
-    transparent
-    class="border border-white/10"
-  >
+  <SpotlightButton rounded transparent class="border border-white/10">
     <div
       class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-100 ease-in-out sm:h-[45px] sm:hover:gap-2"
     >
@@ -19,12 +15,20 @@
         @click="changeLanguage(locale.code)"
         class="flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-1 transition-all duration-100 ease-in-out dark:hover:border-white/5 dark:hover:bg-zinc-900/50 hover:border-black/5 hover:backdrop-blur-3xl sm:px-6"
       >
-        <img
-          :src="getFlagFromAPI(locale.flag)"
-          :alt="locale.name"
-          class="w-6 h-6 rounded-full"
-        />
-        <!-- <span class="flex items-center text-sm">{{ locale.name }}</span> -->
+        <div class="flex flex-col items-center relative">
+          <!-- Bandera -->
+          <img
+            :src="getFlagFromAPI(locale.flag)"
+            :alt="locale.name"
+            class="w-6 h-6 rounded-full"
+          />
+
+          <!-- Línea simulada -->
+          <div
+            v-if="locale.code === selectedLocale.code"
+            class="absolute bottom-[-2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
+          ></div>
+        </div>
       </button>
     </div>
   </SpotlightButton>

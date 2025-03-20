@@ -6,5 +6,10 @@
     "availableLocales": "Available languages",
     "dark": "Dark",
     "light": "Light",
-    "system": "System"
+    "system": "System",
+    "home": "Home",
+    "works": "Projects",
+    "writing": "Blog",
+    "about": "About",
+    "contact": "Contact"
 }
