@@ -2,13 +2,14 @@
   <img
     :src="logoPath"
     alt="Logo"
-    class="w-auto h-128"
+    aria-label="Logo"
+    class="w-auto h-32"
   />
 </template>
 
 <script setup>
-import FirmaCompletaWhite from "~/assets/images/FirmaCompletaWhite.svg";
-import FirmaCompletaBlack from "~/assets/images/FirmaCompletaBlack.svg";
+import FirmaCompletaWhite from "~/assets/images/FirmaProWhite.svg";
+import FirmaCompletaBlack from "~/assets/images/FirmaProBlack.svg";
 
 // Usamos useColorMode para detectar el tema actual
 const colorMode = useColorMode();

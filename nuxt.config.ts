@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@primevue/nuxt-module",
-    "@nuxtjs/i18n",
+    "@nuxtjs/i18n"
   ],
 
   plugins: ["~/plugins/Vue3Lottie.client.ts"],

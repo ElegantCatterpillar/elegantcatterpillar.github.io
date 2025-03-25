@@ -10,6 +10,7 @@
           :id="item.name.toLowerCase()"
           :key="item.name"
           :aria-label="item.name + ' navigation link'"
+          v-tooltip.bottom="$t(item.name)"
           :class="[
             item.to === route.path
               ? 'border border-black/5 black:border-white/5 black:bg-zinc-900/50 black:text-white/75 text-dark/75 shadow-2xl shadow-black/50 black:shadow-white/50 backdrop-blur-3xl'
@@ -21,11 +22,17 @@
           <div class="flex flex-col items-center relative">
             <!-- Ícono y texto -->
             <div class="flex items-center gap-1">
+              <!-- Ícono -->
               <span
+                :id="item.name.toLowerCase()"
                 :class="item.icon"
                 class="flex items-center justify-center size-7 sm:size-6 mt-2"
               />
-              <span class="flex items-center text-sm">{{ $t(item.name) }}</span>
+
+              <!-- Texto (oculto en pantallas pequeñas) -->
+              <!-- <span class="hidden sm:flex items-center text-sm">{{
+                $t(item.name)
+              }}</span> -->
             </div>
 
             <!-- Línea simulada -->

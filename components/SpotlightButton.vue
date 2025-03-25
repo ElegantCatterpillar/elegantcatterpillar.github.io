@@ -18,6 +18,11 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  cover: {
+    // 💡 Nueva Prop: Elimina espacios internos
+    type: Boolean,
+    default: false,
+  },
 });
 
 const buttonRef = ref(null);
@@ -27,7 +32,6 @@ const updateGradientSize = () => {
   if (buttonRef.value) {
     const { width, height } = buttonRef.value.getBoundingClientRect();
     const diagonal = Math.sqrt(width * width + height * height);
-    // Añadimos un 20% adicional para cubrir los bordes redondeados
     gradientSize.value = `${diagonal * 1.2}px`;
   }
 };
@@ -50,8 +54,7 @@ onUnmounted(() => {
       rounded ? 'rounded-full' : 'rounded-lg px-8'
     } ${transparent ? '' : 'bg-zinc-100 dark:bg-zinc-800'} ${
       !transparent ? 'group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700' : ''
-    }`"
-    class="px-2"
+    } ${cover ? 'p-0' : 'px-2'}`"
   >
     <div
       v-if="animate"
@@ -89,9 +92,10 @@ onUnmounted(() => {
       :class="rounded ? 'rounded-full' : 'rounded-md'"
     />
 
-    <!-- Texto y efectos hover -->
+    <!-- 📌 Contenido sin márgenes extras si cover=true -->
     <div
-      class="relative z-10 text-black dark:text-white transition-colors duration-100 group-hover:text-black dark:group-hover:text-white"
+      class="relative z-10 text-black dark:text-white transition-colors duration-100 group-hover:text-black dark:group-hover:text-white w-full h-full"
+      :class="cover ? 'flex items-center justify-center' : ''"
     >
       <slot />
     </div>
