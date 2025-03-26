@@ -73,8 +73,8 @@
         <div v-if="showAnimation" class="lottie-global-container">
           <Vue3Lottie
             :animationData="lottieThemeChanged"
-            :height="200"
-            :width="200"
+            :height="150"
+            :width="150"
             :loop="false"
             :autoPlay="true"
             :rendererSettings="{
@@ -143,7 +143,7 @@ watch(
 /* Estilo optimizado para Lottie */
 .lottie-global-container {
   position: fixed;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2147483647;

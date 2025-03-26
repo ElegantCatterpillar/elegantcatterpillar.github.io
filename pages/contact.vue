@@ -1,5 +1,9 @@
 <template>
-  <div class="p-8 flex gap-4"></div>
+  <section
+    class="relative pt-8 z-20 flex flex-col items-center justify-center gap-8"
+  >
+    <ContactForm />
+  </section>
 </template>
 
 <script setup>

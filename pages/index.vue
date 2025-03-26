@@ -27,9 +27,8 @@
 
     <Communication />
 
-    <!-- Línea simulada -->
     <div
-      class="mt-4 left-1/2 w-1/2 max-w-2xl h-[1px] -translate-x-1/2 bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent"
+      class="w-1/2 h-px bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent mx-auto"
     ></div>
 
     <!-- <FAQ /> -->

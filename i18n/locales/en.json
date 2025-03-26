@@ -23,5 +23,9 @@
   "en": "English",
   "temaLight": "Light theme",
   "temaSistema": "System theme",
-  "temaOscuro": "Dark theme"
+  "temaOscuro": "Dark theme",
+  "goBack": "Go back",
+  "goHome": "Go home",
+  "pageNotFound": "Page not found",
+  "somethingWentWrong": "Oops! Something went wrong",
 }

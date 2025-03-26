@@ -14,6 +14,26 @@ export default defineNuxtConfig({
     "~/assets/css/main.css",
   ],
 
+  imports: {
+    presets: [
+      {
+        from: 'zod',
+        imports: ['z']
+      }
+    ]
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['router-link'].includes(tag)
+    }
+  },
+  router: {
+    options: {
+      strict: false // Permite rutas no estrictas
+    }
+  },
+
   colorMode: {
     classSuffix: "",
     storage: "cookie",
