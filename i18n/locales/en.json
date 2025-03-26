@@ -18,4 +18,10 @@
   "worktogether": "Let's work together",
   "schedulemeet": "Schedule a meeting",
   "available": "Available for new opportunities",
+  "changeLanguage": "Translate to",
+  "es": "Spanish",
+  "en": "English",
+  "temaLight": "Light theme",
+  "temaSistema": "System theme",
+  "temaOscuro": "Dark theme"
 }

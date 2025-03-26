@@ -17,6 +17,7 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'light',
             }"
+            v-tooltip.bottom="$t('temaLight')"
           />
           <div
             v-if="selectedTheme === 'light'"
@@ -36,6 +37,7 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'system',
             }"
+            v-tooltip.bottom="$t('temaSistema')"
           />
           <div
             v-if="selectedTheme === 'system'"
@@ -55,6 +57,7 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'dark',
             }"
+            v-tooltip.bottom="$t('temaOscuro')"
           />
           <div
             v-if="selectedTheme === 'dark'"

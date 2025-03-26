@@ -13,6 +13,7 @@
             'bg-white/10': locale.code === selectedLocale.code,
             'hover:bg-white/5': locale.code !== selectedLocale.code,
           }"
+          v-tooltip.bottom="$t('changeLanguage') + ' ' + $t(locale.code)"
         >
           <img
             :src="getFlagFromAPI(locale.flag)"
@@ -56,6 +57,9 @@ const changeLanguageWithTransition = async (newLocale) => {
 
   // 3. Cambiar el idioma
   setLocale(newLocale);
+
+  // **Disparar evento global para actualizar tooltips**
+  window.dispatchEvent(new CustomEvent("languageChanged"));
 
   // 4. Fade in (0.8 segundos)
   document.querySelectorAll("[data-i18n]").forEach((el) => {

@@ -21,22 +21,14 @@
           class="flex items-center justify-center gap-1 rounded-full border border-transparent px-4 py-1 transition-all duration-100 ease-in-out black:hover:border-white/5 black:hover:bg-zinc-900/50 hover:border-black/5 hover:backdrop-blur-3xl sm:px-6"
         >
           <div class="flex flex-col items-center relative">
-            <!-- Ícono y texto -->
             <div class="flex items-center gap-1">
-              <!-- Ícono -->
               <span
                 :id="item.name.toLowerCase()"
                 :class="item.icon"
                 class="flex items-center justify-center size-7 sm:size-6 mt-2"
               />
-
-              <!-- Texto (oculto en pantallas pequeñas) -->
-              <!-- <span class="hidden sm:flex items-center text-sm">{{
-                $t(item.name)
-              }}</span> -->
             </div>
 
-            <!-- Línea simulada -->
             <div
               v-if="item.to === route.path"
               class="absolute bottom-[0px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
@@ -50,8 +42,6 @@
 
 <script setup>
 import { useRoute } from "vue-router";
-import { getNavigation } from "../composables/useNavigation";
-
 const route = useRoute();
 const navigation = getNavigation;
 </script>

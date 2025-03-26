@@ -18,4 +18,10 @@
   "worktogether": "Trabajemos juntos",
   "schedulemeet": "Programar una reunión",
   "available": "Disponible para nuevas oportunidades",
+  "changeLanguage": "Traducir a",
+  "es": "Español",
+  "en": "Inglés",
+  "temaLight": "Tema claro",
+  "temaSistema": "Tema del sistema",
+  "temaOscuro": "Tema oscuro"
 }
