@@ -7,6 +7,7 @@
 
     <!-- title -->
     <h1
+      data-i18n
       class="mx-auto font-medium text-center text-pretty bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-3xl text-transparent lg:max-w-4xl lg:text-4xl dark:bg-gradient-to-r dark:from-gray-100 dark:to-gray-400 animate-pulse animate-once pb-2"
     >
       {{ $t("title") }}
@@ -14,6 +15,7 @@
 
     <!-- subtitle -->
     <h2
+      data-i18n
       class="mx-auto max-w-2xl text-center text-lg antialiased text-gray-600/90 dark:text-gray-300/80 animate-pulse animate-once"
     >
       {{ $t("subtitle") }}
@@ -30,7 +32,7 @@
       class="mt-4 left-1/2 w-[80%] max-w-2xl h-[1px] -translate-x-1/2 bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent"
     ></div>
 
-    <FAQ />
+    <!-- <FAQ /> -->
   </section>
 </template>
 

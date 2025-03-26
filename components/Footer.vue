@@ -11,7 +11,7 @@
       <Logo />
 
       <!-- Texto del footer -->
-      <span class="text-center text-md text-muted">
+      <span data-i18n class="text-center text-md text-muted">
         © {{ new Date().getFullYear() }},
         <NuxtLink
           to="https://github.com/ElegantCatterpillar"
