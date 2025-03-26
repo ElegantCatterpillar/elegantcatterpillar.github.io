@@ -5,6 +5,7 @@
         class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-100 ease-in-out sm:h-[45px] sm:hover:gap-2"
       >
         <NuxtLink
+          data-i18n
           v-for="item in navigation"
           v-show="item.show"
           :id="item.name.toLowerCase()"

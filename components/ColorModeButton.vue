@@ -1,14 +1,15 @@
 <template>
-  <div class="flex justify-center items-center p-4">
-    <!-- SpotlightButton que contiene los botones de tema -->
+  <div class="flex justify-center items-center">
+    <!-- Botones de selección de tema -->
     <SpotlightButton rounded transparent class="border border-white/10">
-      <nav
+      <div
         class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-100 ease-in-out sm:h-[45px] sm:hover:gap-2"
       >
-        <!-- Tema LIGHT -->
+        <!-- Tema Light -->
         <div class="flex flex-col items-center relative">
           <Button
             icon="pi pi-sun"
+            @click="startThemeTransition('light')"
             class="px-4 py-2"
             :class="{
               'dark:bg-zinc-900/50 text-dark border border-black/5 shadow-2xl':
@@ -16,20 +17,18 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'light',
             }"
-            @click="changeTheme('light')"
           />
-
-          <!-- Línea simulada -->
           <div
             v-if="selectedTheme === 'light'"
             class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
           ></div>
         </div>
 
-        <!-- Tema AUTO -->
+        <!-- Tema System -->
         <div class="flex flex-col items-center relative">
           <Button
             icon="pi pi-desktop"
+            @click="startThemeTransition('system')"
             class="px-4 py-2"
             :class="{
               'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
@@ -37,20 +36,18 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'system',
             }"
-            @click="changeTheme('system')"
           />
-
-          <!-- Línea simulada -->
           <div
             v-if="selectedTheme === 'system'"
             class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
           ></div>
         </div>
 
-        <!-- Tema DARK -->
+        <!-- Tema Dark -->
         <div class="flex flex-col items-center relative">
           <Button
             icon="pi pi-moon"
+            @click="startThemeTransition('dark')"
             class="px-4 py-2"
             :class="{
               'dark:bg-zinc-900/50 text-white border border-black/5 shadow-2xl':
@@ -58,35 +55,33 @@
               'hover:bg-gray-200 hover:border-black/5 hover:text-dark/75 dark:hover:bg-gray-800 dark:hover:text-white dark:hover:border-white/10':
                 selectedTheme !== 'dark',
             }"
-            @click="changeTheme('dark')"
           />
-
-          <!-- Línea simulada -->
           <div
             v-if="selectedTheme === 'dark'"
             class="absolute bottom-[2px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-black dark:via-white to-transparent"
           ></div>
         </div>
-      </nav>
+      </div>
     </SpotlightButton>
 
-    <!-- Animación de cambio de tema -->
-    <div
-      v-if="showAnimation"
-      class="fixed inset-0 flex justify-center items-center z-50"
-    >
-      <Vue3Lottie
-        :animationData="lottieThemeChanged"
-        :height="200"
-        :width="200"
-        :loop="false"
-        :autoPlay="true"
-        class="absolute"
-      />
-      <div
-        class="absolute w-2 h-2 rounded-full bg-black dark:bg-white animate-expand"
-      ></div>
-    </div>
+    <!-- Animación Lottie teleportada al body -->
+    <teleport to="body">
+      <Transition name="lottie-fade">
+        <div v-if="showAnimation" class="lottie-global-container">
+          <Vue3Lottie
+            :animationData="lottieThemeChanged"
+            :height="200"
+            :width="200"
+            :loop="false"
+            :autoPlay="true"
+            :rendererSettings="{
+              preserveAspectRatio: 'xMidYMid slice',
+              clearCanvas: true,
+            }"
+          />
+        </div>
+      </Transition>
+    </teleport>
   </div>
 </template>
 
@@ -94,28 +89,45 @@
 import { ref, watch } from "vue";
 import { Vue3Lottie } from "vue3-lottie";
 import lottieThemeChanged from "~/assets/lotties/changeTheme.json";
-import Button from "primevue/button";
 
 const colorMode = useColorMode();
 const selectedTheme = ref(colorMode.preference);
 const showAnimation = ref(false);
 
 const changeTheme = (theme) => {
+  colorMode.preference = theme;
+  selectedTheme.value = theme;
+};
+
+const startThemeTransition = async (theme) => {
   if (theme === colorMode.preference) return;
 
   showAnimation.value = true;
 
-  setTimeout(() => {
-    colorMode.preference = theme;
-    selectedTheme.value = theme;
-  }, 1000);
+  // Esperar un frame para que Lottie se renderice
+  await new Promise((resolve) => requestAnimationFrame(resolve));
 
-  setTimeout(() => {
+  if (!document.startViewTransition) {
+    changeTheme(theme);
+    setTimeout(() => (showAnimation.value = false), 1200);
+    return;
+  }
+
+  // Iniciar la transición visual
+  document.documentElement.classList.add("theme-transition-active");
+
+  const transition = document.startViewTransition(() => {
+    changeTheme(theme);
+  });
+
+  try {
+    await transition.finished;
+  } finally {
+    document.documentElement.classList.remove("theme-transition-active");
     showAnimation.value = false;
-  }, 1500);
+  }
 };
 
-// Sincronizar cambios en el tema
 watch(
   () => colorMode.preference,
   (newTheme) => {
@@ -125,18 +137,58 @@ watch(
 </script>
 
 <style>
-@keyframes expand {
-  0% {
-    transform: scale(1);
+/* Estilo optimizado para Lottie */
+.lottie-global-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2147483647;
+  pointer-events: none;
+  width: 200px;
+  height: 200px;
+  background: transparent !important;
+}
+
+.lottie-global-container canvas {
+  display: block;
+  background: transparent !important;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Transición suave */
+.lottie-fade-enter-active,
+.lottie-fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+.lottie-fade-enter-from,
+.lottie-fade-leave-to {
+  opacity: 1;
+}
+
+/* Transición de expansión desde el centro */
+.theme-transition-active::view-transition-group(root) {
+  animation-duration: 1.5s;
+}
+
+.theme-transition-active::view-transition-new(root) {
+  animation-name: theme-expand;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes theme-expand {
+  from {
+    clip-path: circle(0% at 50% 50%);
     opacity: 1;
   }
-  100% {
-    transform: scale(200);
-    opacity: 0;
+  to {
+    clip-path: circle(150% at 50% 50%);
+    opacity: 1;
   }
 }
 
-.animate-expand {
-  animation: expand 1.2s ease-out forwards;
+/* Mejorar rendimiento */
+.theme-transition-active::view-transition-old(root) {
+  animation: none;
 }
 </style>

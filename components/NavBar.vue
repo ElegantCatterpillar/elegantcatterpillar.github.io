@@ -4,7 +4,7 @@ const isSmallScreen = ref(false);
 
 // Función para actualizar el estado del tamaño de la pantalla
 function updateScreenSize() {
-  isSmallScreen.value = window.innerWidth < 640; // 640px es el breakpoint "sm" de Tailwind
+  isSmallScreen.value = window.innerWidth < 800; // 640px es el breakpoint "sm" de Tailwind
 }
 
 // Escuchar cambios en el tamaño de la pantalla

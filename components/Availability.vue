@@ -45,6 +45,7 @@ defineProps({
       />
     </span>
     <span
+      data-i18n
       class="ml-2 text-sm font-medium"
       :class="currentAvailability.textColor"
     >

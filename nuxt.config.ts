@@ -46,6 +46,9 @@ export default defineNuxtConfig({
       cookieCrossOrigin: true
     },
     lazy: true,
+    bundle: {
+      optimizeTranslationDirective: false
+    },
     langDir: "locales",
     locales: [
       {
