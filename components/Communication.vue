@@ -1,4 +1,3 @@
-import NuxtRenderHTMLContext from 'nuxt/app';
 <template>
   <div
     class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-2"

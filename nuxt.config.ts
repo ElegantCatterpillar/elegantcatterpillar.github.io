@@ -5,33 +5,32 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@primevue/nuxt-module",
-    "@nuxtjs/i18n"
+    "@nuxtjs/i18n",
+    "@nuxt/image",
   ],
 
   plugins: ["~/plugins/Vue3Lottie.client.ts"],
 
-  css: [
-    "~/assets/css/main.css",
-  ],
+  css: ["~/assets/css/main.css"],
 
   imports: {
     presets: [
       {
-        from: 'zod',
-        imports: ['z']
-      }
-    ]
+        from: "zod",
+        imports: ["z"],
+      },
+    ],
   },
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => ['router-link'].includes(tag)
-    }
+      isCustomElement: (tag) => ["router-link"].includes(tag),
+    },
   },
   router: {
     options: {
-      strict: false // Permite rutas no estrictas
-    }
+      strict: false, // Permite rutas no estrictas
+    },
   },
 
   colorMode: {
@@ -63,11 +62,11 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "user_language",
       cookieSecure: process.env.NODE_ENV === "production",
-      cookieCrossOrigin: true
+      cookieCrossOrigin: true,
     },
     lazy: true,
     bundle: {
-      optimizeTranslationDirective: false
+      optimizeTranslationDirective: false,
     },
     langDir: "locales",
     locales: [
@@ -87,7 +86,7 @@ export default defineNuxtConfig({
         flag: "MX",
         file: "es.json",
       },
-    ]
+    ],
   },
 
   compatibilityDate: "2024-10-21",

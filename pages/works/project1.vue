@@ -5,7 +5,7 @@
     <h1
       class="font-newsreader italic text-center text-4xl text-neutral-900 dark:text-white"
     >
-      About me
+      Project1
     </h1>
     <h2
       class="text-center text-lg font-extralight italic text-neutral-600 dark:text-neutral-400"

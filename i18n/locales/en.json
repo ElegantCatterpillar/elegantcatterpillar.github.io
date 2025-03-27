@@ -28,4 +28,24 @@
   "goHome": "Go home",
   "pageNotFound": "Page not found",
   "somethingWentWrong": "Oops! Something went wrong",
+  "soon": "Soon",
+  "contactForm": {
+    "nameLabel": "Name (Optional)",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email*",
+    "emailPlaceholder": "Your email",
+    "phoneLabel": "Phone (Optional)",
+    "phoneHint": "(include country code, e.g. +1 123 456 7890)",
+    "phonePlaceholder": "+[country code] [number]",
+    "subjectLabel": "Subject*",
+    "subjectPlaceholder": "Message subject",
+    "messageLabel": "Message*",
+    "messagePlaceholder": "Your message"
+  },
+  "validation": {
+    "Invalid email": "Please enter a valid email address",
+    "Too short": "This field is too short",
+    "Subject is required": "Subject is required",
+    "Please enter a valid phone number with country code": "Please enter a valid phone number with country code"
+  }
 }

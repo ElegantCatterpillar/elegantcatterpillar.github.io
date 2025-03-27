@@ -1,19 +1,52 @@
 /* Importar PrimeIcons */
-@import 'primeicons/primeicons.css';
+@import "primeicons/primeicons.css";
 
 /* Definir capas de Tailwind */
 @layer tailwind-base, primevue, tailwind-utilities;
 
 @layer tailwind-base {
-    @tailwind base;
+  @tailwind base;
 }
 
 @layer tailwind-utilities {
-    @tailwind components;
-    @tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 }
 
 /* Estilos personalizados */
 body {
   @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
+}
+
+:root {
+  --cursor-size: 24px;
+}
+
+/* Efecto Spotlight para el cursor */
+@keyframes cursor-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cursor-effect {
+  position: fixed;
+  pointer-events: none;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(255, 255, 255, 0.8) 0deg,
+    transparent 60deg,
+    transparent 300deg,
+    rgba(255, 255, 255, 0.8) 360deg
+  );
+  animation: cursor-spin 3s linear infinite;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
 }

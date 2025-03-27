@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import ProfileImage from "~/assets/images/me.jpg";
+import ProfileImage from "~/public/images/me.jpg";
 </script>

@@ -44,14 +44,14 @@ const buttonRef = ref(null);
     >
       <!-- Modo claro -->
       <div
-        class="absolute size-[100cqw] animate-spin opacity-0 transition duration-300 group-hover:opacity-100 bg-[conic-gradient(from_0_at_50%_50%,rgba(0,0,0,0.5)_0deg,transparent_60deg,transparent_300deg,rgba(0,0,0,0.5)_360deg)] dark:hidden"
+        class="absolute size-[100cqw] animate-spin opacity-0 transition duration-100 group-hover:opacity-100 bg-[conic-gradient(from_0_at_50%_50%,rgba(0,0,0,0.5)_0deg,transparent_60deg,transparent_300deg,rgba(0,0,0,0.5)_360deg)] dark:hidden"
         :style="{
           animationDuration: '2s',
         }"
       />
       <!-- Modo oscuro -->
       <div
-        class="absolute size-[100cqw] animate-spin opacity-0 transition duration-300 group-hover:opacity-100 bg-[conic-gradient(from_0_at_50%_50%,rgba(255,255,255,0.5)_0deg,transparent_60deg,transparent_300deg,rgba(255,255,255,0.5)_360deg)] hidden dark:block"
+        class="absolute size-[100cqw] animate-spin opacity-0 transition duration-100 group-hover:opacity-100 bg-[conic-gradient(from_0_at_50%_50%,rgba(255,255,255,0.5)_0deg,transparent_60deg,transparent_300deg,rgba(255,255,255,0.5)_360deg)] hidden dark:block"
         :style="{
           animationDuration: '2s',
         }"
@@ -68,13 +68,13 @@ const buttonRef = ref(null);
 
     <!-- Sombra/reflejo -->
     <div
-      class="absolute bottom-0 left-1/2 h-1/3 w-4/5 -translate-x-1/2 bg-black/10 opacity-50 blur-md transition-all duration-500 group-hover:h-2/3 group-hover:opacity-100 dark:bg-white/10"
+      class="absolute bottom-0 left-1/2 h-1/3 w-4/5 -translate-x-1/2 bg-black/10 opacity-50 blur-md transition-all duration-100 group-hover:h-2/3 group-hover:opacity-100 dark:bg-white/10"
       :class="rounded ? 'rounded-full' : 'rounded-md'"
     />
 
     <!-- Contenido -->
     <div
-      class="relative z-10 text-black dark:text-white transition-colors duration-300 group-hover:text-black dark:group-hover:text-white w-full h-full"
+      class="relative z-10 text-black dark:text-white transition-colors duration-100 group-hover:text-black dark:group-hover:text-white w-full h-full"
       :class="cover ? 'flex items-center justify-center' : 'px-2'"
     >
       <slot />

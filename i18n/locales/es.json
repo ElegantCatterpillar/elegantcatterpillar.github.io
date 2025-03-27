@@ -28,4 +28,24 @@
   "goHome": "Ir al inicio",
   "pageNotFound": "Pagina no encontrada",
   "somethingWentWrong": "Oops! Algo salió mal",
+  "soon": "Pronto",
+  "contactForm": {
+    "nameLabel": "Nombre (Opcional)",
+    "namePlaceholder": "Tu nombre",
+    "emailLabel": "Correo electrónico*",
+    "emailPlaceholder": "Tu correo electrónico",
+    "phoneLabel": "Teléfono (Opcional)",
+    "phoneHint": "(incluye código de país, ej. +52 55 1234 5678)",
+    "phonePlaceholder": "+[código] [número]",
+    "subjectLabel": "Asunto*",
+    "subjectPlaceholder": "Asunto del mensaje",
+    "messageLabel": "Mensaje*",
+    "messagePlaceholder": "Tu mensaje"
+  },
+  "validation": {
+    "Invalid email": "Por favor ingresa un correo electrónico válido",
+    "Too short": "Este campo es demasiado corto",
+    "Subject is required": "El asunto es requerido",
+    "Please enter a valid phone number with country code": "Por favor ingresa un número telefónico válido con código de país"
+  }
 }

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative pt-8 z-20 flex flex-col items-center justify-center gap-8"
+    class="relative pt-8 z-20 flex flex-col items-center justify-center gap-6"
   >
     <!-- profile picture -->
     <ProfilePicture />
