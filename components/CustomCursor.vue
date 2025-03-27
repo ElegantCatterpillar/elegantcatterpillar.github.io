@@ -1,48 +1,67 @@
 <template>
-  <!-- Contenedor principal del cursor -->
-  <div class="fixed pointer-events-none z-[9999]">
-    <!-- Cursor personalizado -->
+  <!-- Contenedor principal -->
+  <div class="fixed inset-0 pointer-events-none z-[9999] overflow-hidden">
+    <!-- Cursor visual -->
     <div
-      class="transform -translate-x-1/2 -translate-y-1/2"
+      class="absolute pointer-events-none"
       :style="{ left: `${x}px`, top: `${y}px` }"
     >
-      <!-- Anillo exterior estático -->
-      <div
-        class="absolute -inset-1 rounded-full border-2 pointer-events-none"
-        :class="isDark ? 'border-white/20' : 'border-black/20'"
-      ></div>
-
-      <!-- Anillo animado -->
-      <div class="relative w-6 h-6 pointer-events-none">
-        <!-- Modo Claro -->
+      <!-- Contenedor de transformación central -->
+      <div class="relative transform -translate-x-1/2 -translate-y-1/2">
+        <!-- Anillo exterior estático (32x32) -->
         <div
-          v-if="!isDark"
-          class="absolute inset-0 rounded-full pointer-events-none"
-          style="
-            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.8);
-            animation: spin 2.5s linear infinite;
-          "
+          class="absolute w-8 h-8 rounded-full border-2"
+          :class="isDark ? 'border-white/20' : 'border-black/20'"
+          style="left: -16px; top: -16px"
         ></div>
 
-        <!-- Modo Oscuro -->
+        <!-- Anillo animado con efecto spotlight (24x24) -->
         <div
-          v-if="isDark"
-          class="absolute inset-0 rounded-full pointer-events-none"
-          style="
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
-            animation: spin 2.5s linear infinite;
-          "
-        ></div>
+          class="absolute w-6 h-6 rounded-full pointer-events-none"
+          style="left: -12px; top: -12px"
+        >
+          <!-- Efecto de gradiente cónico (modo claro) -->
+          <div
+            v-if="!isDark"
+            class="absolute inset-0 rounded-full animate-spin opacity-80"
+            style="
+              background: conic-gradient(
+                from 0deg at 50% 50%,
+                rgba(0, 0, 0, 0.8) 0deg,
+                transparent 60deg,
+                transparent 300deg,
+                rgba(0, 0, 0, 0.8) 360deg
+              );
+              animation-duration: 2.5s;
+            "
+          ></div>
 
-        <!-- Punto central -->
+          <!-- Efecto de gradiente cónico (modo oscuro) -->
+          <div
+            v-if="isDark"
+            class="absolute inset-0 rounded-full animate-spin opacity-80"
+            style="
+              background: conic-gradient(
+                from 0deg at 50% 50%,
+                rgba(255, 255, 255, 0.8) 0deg,
+                transparent 60deg,
+                transparent 300deg,
+                rgba(255, 255, 255, 0.8) 360deg
+              );
+              animation-duration: 2.5s;
+            "
+          ></div>
+        </div>
+
         <div
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full pointer-events-none"
-          :class="isDark ? 'bg-white' : 'bg-black'"
+          class="absolute w-2 h-2 rounded-full bg-red-500"
+          style="left: -4px; top: -4px"
+          :class="isDark ? '!bg-white' : '!bg-black'"
         ></div>
       </div>
     </div>
 
-    <!-- Canvas para el efecto de polvo de hadas (usando el método original) -->
+    <!-- Canvas para el efecto de polvo -->
     <canvas
       ref="dustCanvas"
       class="fixed top-0 left-0 pointer-events-none z-[9998] w-screen h-screen"
@@ -61,7 +80,7 @@ const lastY = ref(0);
 const isDark = ref(false);
 const dustCanvas = ref(null);
 
-// Variables para el efecto de polvo (fiel al original)
+// Variables para el efecto de polvo
 const particles = ref([]);
 const animationFrame = ref(null);
 const ctx = ref(null);
@@ -75,7 +94,7 @@ const possibleColors = ref({
   ],
 });
 
-// Inicializar efecto de polvo (fiel al original)
+// Inicializar efecto de polvo
 const initDustEffect = () => {
   if (!dustCanvas.value) return;
 
@@ -83,12 +102,12 @@ const initDustEffect = () => {
   dustCanvas.value.height = window.innerHeight;
   ctx.value = dustCanvas.value.getContext("2d");
 
-  // Configuración de texto igual al original
+  // Configuración de texto
   ctx.value.font = "21px serif";
   ctx.value.textBaseline = "middle";
   ctx.value.textAlign = "center";
 
-  // Crear imágenes de texto para cada color (como en el original)
+  // Crear imágenes de texto para cada color
   const char = "*";
   const colors = isDark.value
     ? possibleColors.value.dark
@@ -121,20 +140,7 @@ const initDustEffect = () => {
   animateParticles();
 };
 
-// Agregar partícula (igual al original)
-const addParticle = (x, y) => {
-  if (canvImages.value.length === 0) return;
-
-  particles.value.push(
-    new Particle(
-      x,
-      y,
-      canvImages.value[Math.floor(Math.random() * canvImages.value.length)]
-    )
-  );
-};
-
-// Clase Particle (igual al original)
+// Clase Particle
 class Particle {
   constructor(x, y, canvasItem) {
     const lifeSpan = Math.floor(Math.random() * 30 + 60);
@@ -165,6 +171,19 @@ class Particle {
     );
   }
 }
+
+// Agregar partícula
+const addParticle = (x, y) => {
+  if (canvImages.value.length === 0) return;
+
+  particles.value.push(
+    new Particle(
+      x,
+      y,
+      canvImages.value[Math.floor(Math.random() * canvImages.value.length)]
+    )
+  );
+};
 
 // Animar partículas
 const animateParticles = () => {
@@ -203,7 +222,7 @@ const updatePosition = (e) => {
 
 // Cambiar colores cuando cambia el tema
 const updateDustColors = () => {
-  initDustEffect(); // Recrear las imágenes de texto con los nuevos colores
+  initDustEffect();
 };
 
 // Verificar tema
@@ -243,14 +262,19 @@ watch(isDark, updateDustColors);
 
 <style>
 @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
   to {
     transform: rotate(360deg);
   }
 }
+.animate-spin {
+  animation: spin linear infinite;
+}
 
-/* Asegurar que el canvas ocupe toda la pantalla */
-canvas {
-  width: 100vw;
-  height: 100vh;
+/* Asegurar que el cursor nativo esté oculto */
+body {
+  cursor: none !important;
 }
 </style>
