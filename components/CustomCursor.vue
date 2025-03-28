@@ -39,6 +39,7 @@
               );
               animation-duration: 2.5s;
             "
+            ref="lightConic"
             :key="'lightConic' + isDark"
           ></div>
 
@@ -55,6 +56,7 @@
               );
               animation-duration: 2.5s;
             "
+            ref="darkConic"
             :key="'darkConic' + isDark"
           ></div>
         </div>
@@ -81,24 +83,34 @@
       ref="dustCanvas"
       class="fixed top-0 left-0 pointer-events-none z-[9998] w-screen h-screen"
     ></canvas>
+
+    <div class="fixed bottom-0 left-0 bg-black text-white p-2 z-[99999]">
+      Debug: isDark: {{ isDark }}, colorMode: {{ colorMode.value }}, preference:
+      {{ colorMode.preference }}
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted, watch, nextTick } from "vue";
 
+// Usar el colorMode de Nuxt
+const colorMode = useColorMode();
+
 // Posición del cursor
 const x = ref(0);
 const y = ref(0);
 const lastX = ref(0);
 const lastY = ref(0);
-const isDark = ref(false);
+const isDark = ref(colorMode.value === "dark");
 const isHovering = ref(false);
 const isClicking = ref(false);
 const dustCanvas = ref(null);
 const cursor = ref(null);
 const outerRing = ref(null);
 const middleRing = ref(null);
+const lightConic = ref(null);
+const blackConic = ref(null);
 const dot = ref(null);
 
 // Variables para el efecto de polvo
@@ -114,6 +126,17 @@ const possibleColors = ref({
     "rgba(150,150,150,0.7)",
   ],
 });
+
+// Observar cambios en el colorMode
+watch(
+  () => colorMode.value,
+  (newVal) => {
+    isDark.value = newVal === "dark";
+    nextTick(() => {
+      updateDustColors();
+    });
+  }
+);
 
 // Inicializar efecto de polvo
 const initDustEffect = () => {
@@ -231,7 +254,7 @@ const handleClick = () => {
 
   if (outerRing.value && middleRing.value && dot.value) {
     outerRing.value.style.transform = "scale(1.3)";
-    middleRing.value.style.transform = "scale(1.2)";
+    middleRing.value.style.transform = "scale(1.3)";
 
     setTimeout(() => {
       if (outerRing.value && middleRing.value) {
@@ -286,17 +309,6 @@ const updateDustColors = () => {
   initDustEffect();
 };
 
-// Verificar tema
-const checkTheme = () => {
-  const newValue = document.documentElement.classList.contains("dark");
-  if (isDark.value !== newValue) {
-    isDark.value = newValue;
-    // Forzar actualización del DOM
-    nextTick(() => {
-      updateDustColors();
-    });
-  }
-};
 // Aplicar cursor none a todos los elementos
 const applyCursorNone = () => {
   const style = document.createElement("style");
@@ -310,12 +322,19 @@ const applyCursorNone = () => {
 
 // Inicializar
 onMounted(() => {
-  checkTheme();
   applyCursorNone();
 
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", checkTheme);
+  // Configurar listener para cambios del sistema
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  const updateSystemTheme = (e) => {
+    if (colorMode.preference === "system") {
+      isDark.value = e.matches;
+      updateDustColors();
+    }
+  };
+
+  mediaQuery.addEventListener("change", updateSystemTheme);
+
   window.addEventListener("mousemove", updatePosition);
   window.addEventListener("click", handleClick);
   window.addEventListener("resize", () => {
@@ -336,6 +355,10 @@ onMounted(() => {
   });
 
   initDustEffect();
+
+  return () => {
+    mediaQuery.removeEventListener("change", updateSystemTheme);
+  };
 });
 
 // Limpiar
@@ -347,11 +370,7 @@ onUnmounted(() => {
     ctx.value.clearRect(0, 0, dustCanvas.value.width, dustCanvas.value.height);
   }
 });
-
-// Observar cambios de tema
-watch(isDark, updateDustColors);
 </script>
-
 <style>
 @keyframes spin {
   from {

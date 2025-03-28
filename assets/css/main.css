@@ -20,6 +20,9 @@ body {
 
 :root {
   --cursor-size: 24px;
+  --font-newsreader: "Newsreader", serif;
+  --font-geist: "Geist", sans-serif;
+  --font-mono: "Geist Mono", sans-serif;
 }
 
 /* Efecto Spotlight para el cursor */

@@ -47,5 +47,10 @@
     "Too short": "Este campo es demasiado corto",
     "Subject is required": "El asunto es requerido",
     "Please enter a valid phone number with country code": "Por favor ingresa un número telefónico válido con código de país"
-  }
+  },
+  "worksDescription": "Una pequeña lista de los proyectos en los que he trabajado",
+  "aboutDescription": "Unas pocas palabras sobre mí",
+  "meDescription": "Desarrollador y experto en la gestión integral de proyectos de programación con sede en Hermosillo, México con más de 9 años de experiencia en campo, realizó desde el levantamiento de requerimientos hasta la puesta en marcha de los proyectos. He desarrollado soluciones tecnológicas innovadoras, incluyendo aplicaciones web, de escritorio, móviles y bases de datos, siempre cumpliendo con los plazos establecidos y superando las expectativas de los clientes. Líder de equipo altamente efectivo, con excelentes habilidades de comunicación, coordinación y resolución de problemas. Mi enfoque se basa en la innovación, la honestidad y el aprendizaje continuo, lo que me ha permitido destacar en la entrega de proyectos exitosos y de alta calidad. Busco contribuir en un entorno dinámico donde pueda aplicar mis habilidades, conocimientos y liderazgo para impulsar la transformación digital y la eficiencia operativa en la industria.",
+  "intro": "Introducción",
+  "experiences": "Experiencias"
 }

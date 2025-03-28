@@ -13,13 +13,13 @@
       Descripción
     </h2>
     <div
-      class="w-1/2 h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent mx-auto"
+      class="w-[75%] h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent mx-auto"
     ></div>
 
     <ContactForm />
 
     <div
-      class="w-1/2 h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent"
+      class="w-[75%] h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent"
     ></div>
     <div
       class="flex w-full flex-col items-center justify-around gap-4 sm:flex-row px-4 sm:px-6 lg:px-8 mx-auto"

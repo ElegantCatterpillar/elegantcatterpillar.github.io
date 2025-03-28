@@ -3,14 +3,16 @@
     class="relative mx-auto flex max-w-4xl flex-col pt-8 items-center justify-center gap-4"
   >
     <h1
+    data-i18n
       class="font-newsreader italic text-center text-4xl text-neutral-900 dark:text-white"
     >
-      Proyectos
+      {{ $t("works") }}
     </h1>
     <h2
+    data-i18n
       class="text-center text-lg font-extralight italic text-neutral-600 dark:text-neutral-400"
     >
-      Descripción
+      {{ $t("worksDescription") }}
     </h2>
 
     <div

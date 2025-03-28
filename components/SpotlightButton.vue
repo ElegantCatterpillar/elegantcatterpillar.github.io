@@ -22,6 +22,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  noRoundContent: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const buttonRef = ref(null);
@@ -32,7 +36,7 @@ const buttonRef = ref(null);
     :is="as"
     ref="buttonRef"
     :class="`group relative inline-flex items-center overflow-hidden transition ${
-      rounded ? 'rounded-full' : 'rounded-md px-8'
+      rounded && !noRoundContent ? 'rounded-full' : noRoundContent ? 'rounded-none' : 'rounded-md px-8'
     } ${transparent ? '' : 'bg-zinc-100 dark:bg-zinc-800'} ${
       cover ? 'p-0' : ''
     }`"
