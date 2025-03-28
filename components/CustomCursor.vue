@@ -274,7 +274,7 @@ watch(isDark, updateDustColors);
 }
 
 /* Asegurar que el cursor nativo esté oculto */
-body {
+:root {
   cursor: none !important;
 }
 </style>
