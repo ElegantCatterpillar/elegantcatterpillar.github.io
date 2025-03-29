@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxtjs/i18n",
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
 
   plugins: ["~/plugins/Vue3Lottie.client.ts"],

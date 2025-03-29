@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-const title = "OswaldoDEV";
-const description = "Your page description";
+const title = "Oswaldo";
+const description = "Portafolio";
 const image = "/images/me.jpg";
 const url = "https://oswaldogm.com";
 

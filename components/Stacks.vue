@@ -20,18 +20,18 @@ defineProps({
       {{ $t("stacksDescription") }}
     </p>
     <div class="flex flex-wrap gap-4">
-      <div v-for="(stack, index) in stacks" :key="index">
-        <SpotlightImage
-          :src="stack.image"
-          transparent
-          :width="75"
-          :height="75"
-          square
-          cover
+      <SpotlightCard v-for="stack in stacks" :key="stack.name" white>
+        <NuxtLink
+          :to="stack.link"
+          target="_blank"
+          :aria-label="stack.name + ' link'"
+          class="flex gap-2 p-4"
         >
-          <img :src="stack.image" alt="Icono" />
-        </SpotlightImage>
-      </div>
+          <div class="w-16 h-16">
+            <img :src="stack.image" alt="Icono" />
+          </div>
+        </NuxtLink>
+      </SpotlightCard>
     </div>
   </div>
 </template>
