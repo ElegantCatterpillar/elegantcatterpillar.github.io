@@ -1,9 +1,14 @@
 <template>
   <section
-    class="relative pt-8 z-20 flex flex-col items-center justify-center gap-8"
+    class="relative pt-8 z-20 flex flex-col items-center justify-center gap-6"
   >
-    <!-- profile picture -->
-    <ProfilePicture />
+    <!-- Imagen redondeada -->
+    <SpotlightImage 
+      :src="ProfileImage" 
+      :square="false"
+      :width="200"
+      :height="200"
+    />
 
     <!-- title -->
     <h1
@@ -27,9 +32,8 @@
 
     <Communication />
 
-    <!-- Línea simulada -->
     <div
-      class="mt-4 left-1/2 w-1/2 max-w-2xl h-[1px] -translate-x-1/2 bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent"
+      class="w-[75%] h-px bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent mx-auto"
     ></div>
 
     <!-- <FAQ /> -->
@@ -38,6 +42,7 @@
 
 <script setup>
 defineI18nRoute(false);
+import ProfileImage from "~/public/images/me.jpg";
 </script>
 
 <style scoped>

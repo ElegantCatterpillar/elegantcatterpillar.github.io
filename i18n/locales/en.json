@@ -23,5 +23,34 @@
   "en": "English",
   "temaLight": "Light theme",
   "temaSistema": "System theme",
-  "temaOscuro": "Dark theme"
+  "temaOscuro": "Dark theme",
+  "goBack": "Go back",
+  "goHome": "Go home",
+  "pageNotFound": "Page not found",
+  "somethingWentWrong": "Oops! Something went wrong",
+  "soon": "Soon",
+  "contactForm": {
+    "nameLabel": "Name (Optional)",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email*",
+    "emailPlaceholder": "Your email",
+    "phoneLabel": "Phone (Optional)",
+    "phoneHint": "(include country code, e.g. +1 123 456 7890)",
+    "phonePlaceholder": "+[country code] [number]",
+    "subjectLabel": "Subject*",
+    "subjectPlaceholder": "Message subject",
+    "messageLabel": "Message*",
+    "messagePlaceholder": "Your message"
+  },
+  "validation": {
+    "Invalid email": "Please enter a valid email address",
+    "Too short": "This field is too short",
+    "Subject is required": "Subject is required",
+    "Please enter a valid phone number with country code": "Please enter a valid phone number with country code"
+  },
+  "worksDescription": "A small list of the projects in which I have worked",
+  "aboutDescription": "A few words about me",
+  "meDescription": "Developer and expert in the integral management of programming projects based in Hermosillo, Mexico with more than 9 years of field experience, performed from the requirements gathering to the implementation of the projects. I have developed innovative technology solutions, including web, desktop, mobile and database applications, always meeting deadlines and exceeding customer expectations. Highly effective team leader, with excellent communication, coordination and problem solving skills. My approach is based on innovation, honesty and continuous learning, which has allowed me to excel in delivering successful and high quality projects. I seek to contribute in a dynamic environment where I can apply my skills, knowledge and leadership to drive digital transformation and operational efficiency in the industry.",
+  "intro": "Intro",
+  "experiences": "Experiences"
 }

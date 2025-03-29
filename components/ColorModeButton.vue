@@ -73,8 +73,8 @@
         <div v-if="showAnimation" class="lottie-global-container">
           <Vue3Lottie
             :animationData="lottieThemeChanged"
-            :height="200"
-            :width="200"
+            :height="150"
+            :width="150"
             :loop="false"
             :autoPlay="true"
             :rendererSettings="{
@@ -91,11 +91,18 @@
 <script setup>
 import { ref, watch } from "vue";
 import { Vue3Lottie } from "vue3-lottie";
-import lottieThemeChanged from "~/assets/lotties/changeTheme.json";
+import lottieThemeChanged from "~/public/lotties/changeTheme.json";
 
 const colorMode = useColorMode();
 const selectedTheme = ref(colorMode.preference);
 const showAnimation = ref(false);
+
+// Función para detectar el tema actual del sistema
+const getSystemTheme = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
 
 const changeTheme = (theme) => {
   colorMode.preference = theme;
@@ -103,7 +110,27 @@ const changeTheme = (theme) => {
 };
 
 const startThemeTransition = async (theme) => {
-  if (theme === colorMode.preference) return;
+  // Determinar si realmente hay un cambio de tema
+  let actualThemeChange = false;
+
+  if (theme === "system") {
+    const systemTheme = getSystemTheme();
+    // Si el tema actual ya coincide con el tema del sistema, no hay cambio real
+    if (colorMode.value === systemTheme) {
+      // Solo actualizamos la preferencia sin animación
+      changeTheme(theme);
+      return;
+    }
+    actualThemeChange = true;
+  } else {
+    // Para temas light/dark, solo animar si es diferente al actual
+    actualThemeChange = colorMode.value !== theme;
+  }
+
+  if (!actualThemeChange) {
+    changeTheme(theme);
+    return;
+  }
 
   showAnimation.value = true;
 
@@ -137,13 +164,25 @@ watch(
     selectedTheme.value = newTheme;
   }
 );
+
+// También puedes agregar un listener para cambios en el tema del sistema
+if (typeof window !== "undefined") {
+  window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+      if (colorMode.preference === "system") {
+        // No mostrar animación para cambios automáticos del sistema
+        changeTheme("system");
+      }
+    });
+}
 </script>
 
 <style>
 /* Estilo optimizado para Lottie */
 .lottie-global-container {
   position: fixed;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2147483647;
@@ -185,7 +224,7 @@ watch(
     opacity: 1;
   }
   to {
-    clip-path: circle(150% at 50% 50%);
+    clip-path: circle(100% at 50% 50%);
     opacity: 1;
   }
 }
