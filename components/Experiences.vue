@@ -21,16 +21,16 @@ defineProps({
     </p>
     <div class="flex flex-col gap-4">
       <div v-for="experience in experiences" :key="experience.title">
-        <h4 class="font-semibold">
-          {{ experience.title }}
+        <h4 data-i18n class="font-semibold">
+          {{ $t(experience.title) }}
         </h4>
         <div class="flex gap-1">
-          <p>
-            {{ experience.date }}
+          <p data-i18n>
+            {{ $t(experience.date) }}
           </p>
-          <span class="mx-1"> / </span>
-          <p>
-            {{ experience.company }}
+          <span data-i18n class="mx-1"> / </span>
+          <p data-i18n>
+            {{ $t(experience.company) }}
           </p>
         </div>
       </div>

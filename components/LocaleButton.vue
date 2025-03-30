@@ -1,5 +1,5 @@
 <template>
-  <SpotlightButton rounded transparent class="border border-white/10 h-[46px]">
+  <SpotlightButton rounded transparent class="border dark:border-white/15 border-black/15">
     <div class="z-10 flex h-full items-center justify-center gap-2 p-1">
       <div
         v-for="locale in locales"

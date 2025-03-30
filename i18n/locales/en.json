@@ -40,7 +40,7 @@
     "subjectLabel": "Subject*",
     "subjectPlaceholder": "Message subject",
     "messageLabel": "Message*",
-    "messagePlaceholder": "Your message"
+    "messagePlaceholder": "Your message",
   },
   "validation": {
     "Invalid email": "Please enter a valid email address",
@@ -52,5 +52,21 @@
   "aboutDescription": "A few words about me",
   "meDescription": "Developer and expert in the integral management of programming projects based in Hermosillo, Mexico with more than 9 years of field experience, performed from the requirements gathering to the implementation of the projects. I have developed innovative technology solutions, including web, desktop, mobile and database applications, always meeting deadlines and exceeding customer expectations. Highly effective team leader, with excellent communication, coordination and problem solving skills. My approach is based on innovation, honesty and continuous learning, which has allowed me to excel in delivering successful and high quality projects. I seek to contribute in a dynamic environment where I can apply my skills, knowledge and leadership to drive digital transformation and operational efficiency in the industry.",
   "intro": "Intro",
-  "experiences": "Experiences"
+  "experiences": "Experiences",
+  "experiencesDescription": "A tour of my professional adventures",
+  "contactDescription": "Let's talk about your ideas, projects or anything else",
+  "downloadCV": "Download my resume",
+  "downloadError": "Error downloading file",
+  "experiencesList": {
+    "title1": "Senior Full Stack Developer | Team Lead",
+    "company1": "G3 Ingeniería",
+    "date1": "February 2022 - Present",
+    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi.",
+    "title2": "Mechatronics Engineer | Junior & Mid Developer",
+    "company2": "TE Connectivity Aerospace",
+    "date2": "January 2016 - February 2020",
+    "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi."
+  },
+  "stacks": "Stack",
+  "stacksDescription": "Some of the software and technologies I use on a daily basis"
 }

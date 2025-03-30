@@ -15,6 +15,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   imports: {
+    dirs: ['data'],
     presets: [
       {
         from: "zod",

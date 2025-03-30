@@ -3,14 +3,16 @@
     class="relative pt-8 z-20 mx-auto max-w-4xl flex flex-col items-center justify-center gap-4"
   >
     <h1
+      data-i18n
       class="font-newsreader italic text-center text-4xl text-neutral-900 dark:text-white"
     >
-      Contacto
+      {{ $t("contact") }}
     </h1>
     <h2
+      data-i18n
       class="text-center text-lg font-extralight italic text-neutral-600 dark:text-neutral-400"
     >
-      Descripción
+      {{ $t("contactDescription") }}
     </h2>
     <div
       class="w-[75%] h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent mx-auto"
@@ -24,18 +26,22 @@
     <div
       class="flex w-full flex-col items-center justify-around gap-4 sm:flex-row px-4 sm:px-6 lg:px-8 mx-auto"
     >
-      <div class="flex flex-col gap-3">
-        <dd class="flex items-center gap-3 text-neutral-400">
-          <i class="pi pi-phone size-6" aria-hidden="true" />
-          <span> 6622283222 </span>
+      <div class="grid gap-1">
+        <dd
+          class="grid grid-cols-[auto_1fr] items-center gap-3 text-neutral-400"
+        >
+          <i class="pi pi-phone size-6 mt-2" aria-hidden="true" />
+          <span>+52 (662) 228 32 22</span>
         </dd>
-        <dd class="flex items-center gap-3 text-neutral-400">
-          <i class="pi pi-envelope size-6" aria-hidden="true" />
+        <dd
+          class="grid grid-cols-[auto_1fr] items-center gap-3 text-neutral-400"
+        >
+          <i class="pi pi-envelope size-6 mt-2" aria-hidden="true" />
           <NuxtLink
-            :to="`mailto:oscartlgarciatl@gmail.com`"
+            :to="`mailto:oswaldo.ogarcia95@gmail.com`"
             class="cursor-pointer transition-colors duration-300"
           >
-            oscartlgarciatl@gmail.com
+            oswaldo.ogarcia95@gmail.com
           </NuxtLink>
         </dd>
       </div>

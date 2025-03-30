@@ -25,9 +25,9 @@ defineProps({
           :to="stack.link"
           target="_blank"
           :aria-label="stack.name + ' link'"
-          class="flex gap-2 p-4"
+          class="flex gap-2 p-6"
         >
-          <div class="w-16 h-16">
+          <div class="w-14 h-14">
             <img :src="stack.image" alt="Icono" />
           </div>
         </NuxtLink>

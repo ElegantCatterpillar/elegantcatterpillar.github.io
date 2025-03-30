@@ -1,88 +1,51 @@
 <script setup>
-import { useMouseInElement } from '@vueuse/core'
+import { useMouseInElement } from "@vueuse/core";
 
-const props = defineProps({
-  as: {
-    type: String,
-    default: 'div',
-  },
-  from: {
-    type: String,
-    default: 'rgba(255,255,255,0.8)',
-  },
-  via: {
-    type: String,
-    required: false,
-    default: null,
-  },
-  to: {
-    type: String,
-    default: 'transparent',
-  },
-  size: {
-    type: Number,
-    default: 250,
-  },
-  mode: {
-    type: String,
-    default: 'before',
-  },
-  white: {
-    type: Boolean,
-    default: false,
-  },
-  radius: {
-    type: String,
-    default: '1rem',
-  },
-})
+const card = ref();
+const { elementX, elementY } = useMouseInElement(card);
 
-const card = ref()
-const { elementX, elementY } = useMouseInElement(card)
-
-const spotlightColorStops = [props.from, props.via, props.to].filter(value => !!value).join(',')
+const spotlightConfig = {
+  size: 300,
+  mode: "before",
+};
 </script>
 
 <template>
-  <component
-    :is="as"
-    v-if="!white"
+  <div
     ref="card"
+    class="relative rounded-lg overflow-hidden transform-gpu bg-zinc-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 group"
     :style="{
       '--x': `${elementX}px`,
       '--y': `${elementY}px`,
-      '--spotlight-color-stops': spotlightColorStops,
-      '--spotlight-size': `${size}px`,
+      '--spotlight-size': `${spotlightConfig.size}px`,
     }"
-    :class="{
-      'before:absolute before:inset-0 before:bg-[radial-gradient(var(--spotlight-size)_circle_at_var(--x)_var(--y),var(--spotlight-color-stops))]':
-        mode === 'before',
-      'after:absolute after:inset-0 after:bg-[radial-gradient(var(--spotlight-size)_circle_at_var(--x)_var(--y),var(--spotlight-color-stops))]':
-        mode === 'after',
-    }"
-    class="relative transform-gpu overflow-hidden"
   >
-    <slot />
-  </component>
-  <BaseSpotlightCard
-    v-else
-    from="rgba(255,255,255,0.2)"
-    class="relative rounded-lg"
-  >
-    <!-- border gradient -->
-    <div class="absolute inset-x-0 bottom-0 top-0 rounded-t-lg bg-gradient-to-b from-white/20 to-transparent" />
+    <!-- Efecto principal (invertido por tema) -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      :class="{
+        'before:absolute before:inset-0 before:bg-[radial-gradient(var(--spotlight-size)_circle_at_var(--x)_var(--y),rgba(0,0,0,0.75)_0%,transparent_70%)] dark:before:bg-[radial-gradient(var(--spotlight-size)_circle_at_var(--x)_var(--y),rgba(255,255,255,0.25)_0%,transparent_70%)]':
+          spotlightConfig.mode === 'before',
+      }"
+    />
 
-    <!-- top highlight -->
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+    <!-- Efecto de iluminación ambiental (invertido) -->
+    <div
+      class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      :class="{
+        'bg-[radial-gradient(200%_200%_at_var(--x)_var(--y),rgba(0,0,0,0.03)_0%,transparent_100%)]': true,
+        'dark:bg-[radial-gradient(200%_200%_at_var(--x)_var(--y),rgba(255,255,255,0.03)_0%,transparent_100%)]': true,
+      }"
+    />
 
-    <!-- background -->
-    <div class="absolute inset-px rounded-lg bg-zinc-950" />
+    <!-- Fondo base (sin cambios en hover) -->
+    <div
+      class="absolute inset-px rounded-lg bg-zinc-50/95 backdrop-blur-md dark:bg-neutral-900/80"
+    />
 
-    <!-- inner light -->
-    <div class="absolute inset-0 bg-[radial-gradient(40%_128px_at_50%_0%,theme(backgroundColor.white/5%),transparent)]" />
-
-    <div class="relative flex h-full flex-col">
+    <!-- Contenido -->
+    <div class="relative z-10 flex h-full flex-col">
       <slot />
     </div>
-  </BaseSpotlightCard>
+  </div>
 </template>
