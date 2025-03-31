@@ -1,5 +1,7 @@
 {
   "welcome": "Welcome",
+  "seeMore": "See more",
+  "seeLess": "See  less",
   "selectTheme": "Select your theme",
   "availableThemes": "Available themes",
   "selectLanguage": "Select your language",
@@ -40,7 +42,7 @@
     "subjectLabel": "Subject*",
     "subjectPlaceholder": "Message subject",
     "messageLabel": "Message*",
-    "messagePlaceholder": "Your message",
+    "messagePlaceholder": "Your message"
   },
   "validation": {
     "Invalid email": "Please enter a valid email address",
@@ -61,11 +63,11 @@
     "title1": "Senior Full Stack Developer | Team Lead",
     "company1": "G3 Ingeniería",
     "date1": "February 2022 - Present",
-    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi.",
+    "description1": "On my next path I sought new challenges, I left behind simple applications and got fully involved in developing complex systems. I founded the software development department, which eventually became a key area of the company. My developments started with internal tools and applications on the intranet and in the cloud; later, new custom developments were made for clients, where the main features of these were desktop applications, services, web applications and mobile applications along with integrations with devices for the management, monitoring and reporting to the competent authorities of their processes. Over time, I not only developed software, but also started, under my leadership, to instruct and guide other programmers, which I enjoyed very much: teaching, watching their growth and which uses the best development practices for their projects. I can proudly say that I have created complete standalone systems from scratch, as well as designed complete infrastructures (from local servers to the cloud), which are running flawlessly and, after all these years, I still can't find an application that I can't do.",
     "title2": "Mechatronics Engineer | Junior & Mid Developer",
     "company2": "TE Connectivity Aerospace",
     "date2": "January 2016 - February 2020",
-    "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi."
+    "description2": "This is where it all began. As a mechatronics engineer, my initial focus was process automation: optimizing functionalities, enhancing equipment safety, and implementing technical improvements. To achieve end-to-end integrations, I transitioned into software development, building over 30 applications (desktop and web) from scratch—each designed to streamline critical operational tasks and address specific production needs. A key achievement was the automation of technical documentation for in-house manufactured components. This not only ensured quality standards but also transformed a manual process into a fully digital workflow. The innovation eliminated paper usage and enabled specialized equipment fabrication in-house, cutting implementation costs and time—with estimated annual savings exceeding $1 million USD."
   },
   "stacks": "Stack",
   "stacksDescription": "Some of the software and technologies I use on a daily basis"

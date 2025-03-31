@@ -1,5 +1,7 @@
 {
   "welcome": "Bienvenido",
+  "seeMore": "Ver más",
+  "seeLess": "Ver menos",
   "selectTheme": "Selecciona tu tema",
   "availableThemes": "Temas disponibles",
   "selectLanguage": "Selecciona tu idioma",
@@ -61,11 +63,11 @@
     "title1": "Desarrollador Senior Full Stack | Líder de Equipo",
     "company1": "G3 Ingeniería",
     "date1": "Febrero 2022 - Presente",
-    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi.",
+    "description1": "En mi siguiente camino busqué nuevos retos, dejé atrás las aplicaciones sencillas y me metí de lleno en desarrollar sistemas complejos. Fundé el departamento de desarrollo de software, el cual con el tiempo se volvió un área clave de la empresa. Mis desarrollos comenzaron con herramientas y aplicaciones internas en la intranet y en la nube; después, nuevos desarrollos a la medida se realizaron a los clientes, donde las principales características de estas eran aplicaciones de escritorio, servicios, aplicaciones web y aplicaciones móviles junto con integraciones con dispositivos para la gestión, monitoreo y reporteo a las autoridades competentes de sus procesos. Con el tiempo, no solo desarrollaba software, sino que también comencé, bajo mi liderazgo, a instruir y guiar a otros programadores, lo cual disfruté mucho: enseñar, ver sus crecimientos y el cual utiliza las mejores prácticas de desarrollo para sus proyectos. Orgullosamente puedo decir que he creado sistemas autónomos completos desde cero, así como también he diseñado infraestructuras completas (desde servidores locales hasta la nube), las cuales se encuentran funcionando sin fallas y, después de todos estos años, todavía no encuentro una aplicación que no pueda hacer.",
     "title2": "Ingeniero Mecatrónico | Desarrollador Junior & Mid",
     "company2": "TE Connectivity Aerospace",
     "date2": "Enero 2016 - Febrero 2020",
-    "description2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi."
+    "description2": "Aquí comenzó todo. Como ingeniero mecatrónico, mi enfoque inicial fue la automatización de procesos: optimizando funcionalidades, reforzando seguridad en equipos e implementando mejoras técnicas. Para lograr integraciones completas, di el salto al desarrollo de software, creando más de 30 aplicaciones (escritorio y web) desde cero, cada una diseñada para agilizar tareas operativas críticas y cubrir necesidades específicas de producción. Un logro clave fue la automatización de la documentación técnica de componentes aquí fabricados, que no solo garantizó estándares de calidad, sino que transformó un proceso manual en uno 100% digital. Esta innovación eliminó el uso de papel y permitió fabricar equipos especializados in-house, reduciendo costos y tiempos de implementación con un ahorro estimado de más de $1 millón de dólares al año."
   },
   "stacks": "Stack",
   "stacksDescription": "Algunos de los programas y tecnologías que utilizo a diario"

@@ -25,9 +25,19 @@
       class="w-full px-2 sm:px-0 max-w-2xl text-center text-lg antialiased text-gray-600/90 dark:text-gray-300/80 animate-pulse animate-once"
     >
       {{ $t("subtitle") }}
+      <br>
+      <span>
+        <NuxtLink
+          data-i18n
+          class="relative italic p-2 flex items-center justify-center gap- text-md font-medium text-neutral-900 dark:text-white transition-all duration-200 hover:text-neutral-600 dark:hover:text-neutral-300"
+          to="/about"
+          rel="noopener"
+          >{{ $t("seeMore") }}...
+        </NuxtLink>
+      </span>
     </h2>
 
-    <Availability class="px-2 sm:px-0" />
+    <Availability class="px-2" />
 
     <Social class="w-full px-2 sm:px-0" />
 

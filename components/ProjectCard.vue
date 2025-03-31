@@ -125,7 +125,7 @@ defineProps({
         "name",
         "image",
         "link",
-        "slug", // Nuevo campo requerido para las rutas internas
+        "slug",
         "release",
         "date",
       ].every((key) => key in p);
