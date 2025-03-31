@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxtjs/i18n",
     "@nuxt/image",
+    "@vueuse/nuxt",
   ],
 
   plugins: ["~/plugins/Vue3Lottie.client.ts"],
@@ -14,6 +15,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
 
   imports: {
+    dirs: ['data'],
     presets: [
       {
         from: "zod",

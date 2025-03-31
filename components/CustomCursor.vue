@@ -367,7 +367,7 @@ onUnmounted(() => {
   window.removeEventListener("click", handleClick);
   cancelAnimationFrame(animationFrame.value);
   if (ctx.value) {
-    ctx.value.clearRect(0, 0, dustCanvas.value.width, dustCanvas.value.height);
+    ctx.value.clearRect(0, 0, dustCanvas.value?.width, dustCanvas.value?.height);
   }
 });
 </script>

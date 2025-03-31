@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
     <!-- Botones de selección de tema -->
-    <SpotlightButton rounded transparent class="border border-white/10">
+    <SpotlightButton rounded transparent class="border dark:border-white/15 border-black/15">
       <div
         class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-100 ease-in-out sm:h-[45px] sm:hover:gap-2"
       >

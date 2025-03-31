@@ -1,6 +1,6 @@
 <template>
   <header class="rounded-full">
-    <SpotlightButton rounded transparent class="border border-white/10">
+    <SpotlightButton rounded transparent class="border dark:border-white/15 border-black/15">
       <nav
         class="z-10 flex h-[50px] justify-around gap-1 p-1 transition-all duration-500 ease-in-out sm:h-[45px] sm:hover:gap-2"
       >

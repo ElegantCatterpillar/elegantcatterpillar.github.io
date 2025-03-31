@@ -1,6 +1,6 @@
 <template>
   <section
-    class="relative pt-8 z-20 mx-auto flex max-w-4xl flex-col items-center justify-center gap-4"
+    class="relative pt-8 z-20 mx-auto flex max-w-4xl flex-col items-center justify-center gap-4 px-4 sm:px-0"
   >
     <h1
       data-i18n
@@ -14,9 +14,7 @@
     >
       {{ $t("aboutDescription") }}
     </h2>
-    <div
-      class="w-[75%] h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent mx-auto"
-    ></div>
+    <div class="w-full sm:w-[75%] h-px bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-600 to-transparent mx-auto"></div>
 
     <div
       class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between"
@@ -33,13 +31,21 @@
         <Signature class="w-32 md:w-40" />
       </div>
 
-      <!-- Contenedor de texto con firma -->
       <div class="items-center flex flex-col gap-4 sm:ml-4">
-        <!-- Añadido pb-10 para espacio -->
-        <h3 data-i18n class="text-lg">{{ $t("intro") }}</h3>
+        <h3 data-i18n class="text-lg text-start w-full">{{ $t("intro") }}</h3>
         <div data-i18n class="flex flex-col gap-4 text-primary">
           {{ $t("meDescription") }}
         </div>
+        <SpotlightButton>
+          <button
+            data-i18n
+            @click="downloadCV"
+            class="flex items-center justify-between gap-2 px-2 py-2 text-lg text-neutral-900 dark:text-white font-medium"
+          >
+            <i class="pi pi-download"></i>
+            <span class="ml-4">{{ $t("downloadCV") }}</span>
+          </button>
+        </SpotlightButton>
       </div>
     </div>
 
@@ -55,43 +61,31 @@
     ></div>
 
     <Stacks class="w-full" :stacks="stacks || []" />
-    
   </section>
 </template>
 
 <script setup>
 defineI18nRoute(false);
 import ProfileImage from "~/public/images/me.jpg";
+import { experiences } from '~/data/experiences';
+import { stacks } from '~/data/stacks';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
-const experiences = [
-  {
-    title: "Frontend Developer",
-    company: "Ogm",
-    date: "2022 - Present",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi.",
-  },
-  {
-    title: "Frontend Developer",
-    company: "Ogm",
-    date: "2022 - Present",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Nulla facilisi. Nulla facilisi.",
-  },
-];
-
-const stacks = [
-  {
-    name: "netcore",
-    link: "https://dotnet.microsoft.com/en-us/",
-    image: '/images/stack/netcore.svg'
-  },
-  {
-    name: "photoshop",
-    link: "https://www.adobe.com/es/products/photoshop.html",
-    image: '/images/stack/photoshop.svg'
-  },
-];
+const downloadCV = () => {
+  const filePath = `/documents/cv-${locale.value}.pdf`;
+  fetch(filePath).then((response) => {
+    if (response.ok) {
+      const link = document.createElement("a");
+      link.href = filePath;
+      const fileNameRef = locale.value === "es" ? "CV" : "Resume";
+      link.download = `Oswaldo Garcia ${fileNameRef}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert(t("downloadError"));
+    }
+  });
+};
 </script>
