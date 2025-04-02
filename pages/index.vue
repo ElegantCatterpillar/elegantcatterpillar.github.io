@@ -47,7 +47,7 @@
       class="w-full sm:w-[75%] h-px bg-gradient-to-r from-transparent via-black/35 dark:via-white/35 to-transparent mx-auto"
     ></div>
 
-    <!-- <FAQ class="w-full px-2 sm:px-0" /> -->
+    <FAQ class="w-full px-2 sm:px-0" />
   </section>
 </template>
 
