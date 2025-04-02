@@ -22,7 +22,7 @@ if (!project.value) {
       class="mb-6 flex items-center text-sm text-zinc-500 dark:text-zinc-400"
     >
       <NuxtLink
-        to="/projects"
+        to="/works"
         class="hover:text-zinc-700 dark:hover:text-zinc-300"
       >
         Projects
