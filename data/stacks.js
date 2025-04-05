@@ -221,153 +221,153 @@ export const stacks = [
   },
 ];
 
-export const usuallyStack = [
-  {
-    name: "OpenTelemetry",
-    link: "https://opentelemetry.io/",
-    image: "/images/stack/OpenTelemetry.svg",
-  },
-  {
-    name: "InFluxDB",
-    link: "https://www.influxdata.com/",
-    image: "/images/stack/InFluxDB.svg",
-  },
-];
+// export const usuallyStack = [
+//   {
+//     name: "OpenTelemetry",
+//     link: "https://opentelemetry.io/",
+//     image: "/images/stack/OpenTelemetry.svg",
+//   },
+//   {
+//     name: "InFluxDB",
+//     link: "https://www.influxdata.com/",
+//     image: "/images/stack/InFluxDB.svg",
+//   },
+// ];
 
-export const rareStack = [
-  {
-    name: "Kubernetes",
-    link: "https://kubernetes.io/",
-    image: "/images/stack/Kubernetes.svg",
-  },
-  {
-    name: "Laravel",
-    link: "https://laravel.com/",
-    image: "/images/stack/Laravel.svg",
-  },
-  {
-    name: "RabbitMQ",
-    link: "https://www.rabbitmq.com/",
-    image: "/images/stack/RabbitMQ.svg",
-  },
-  {
-    name: "arduino",
-    link: "https://www.arduino.cc/",
-    image: "/images/stack/arduino.svg",
-  },
-  {
-    name: "Docker",
-    link: "https://www.docker.com/",
-    image: "/images/stack/Docker.svg",
-  },
-  {
-    name: "azure",
-    link: "https://azure.microsoft.com/",
-    image: "/images/stack/azure.svg",
-  },
-  {
-    name: "Logstash",
-    link: "https://www.elastic.co/logstash/",
-    image: "/images/stack/Logstash.svg",
-  },
-  {
-    name: "Rust",
-    link: "https://www.rust-lang.org/",
-    image: "/images/stack/Rust.svg",
-  },
-  {
-    name: "Lua",
-    link: "https://www.lua.org/",
-    image: "/images/stack/Lua.svg",
-  },
-  {
-    name: "couchdb", // Assuming this is CouchDB
-    link: "https://couchdb.apache.org/",
-    image: "/images/stack/couchdb.svg",
-  },
-  {
-    name: "Slack",
-    link: "https://slack.com/",
-    image: "/images/stack/Slack.svg",
-  },
-  {
-    name: "Socket.io",
-    link: "https://socket.io/",
-    image: "/images/stack/Socket.io.svg",
-  },
-  {
-    name: "Nest.js",
-    link: "https://nestjs.com/",
-    image: "/images/stack/Nest.js.svg",
-  },
-  {
-    name: "jQuery",
-    link: "https://jquery.com/",
-    image: "/images/stack/jQuery.svg",
-  },
-  {
-    name: "Grafana",
-    link: "https://grafana.com/",
-    image: "/images/stack/Grafana.svg",
-  },
-  {
-    name: "Svelte",
-    link: "https://svelte.dev/",
-    image: "/images/stack/Svelte.svg",
-  },
-  {
-    name: "jaegertracing", // Corrected from jaepertracing
-    link: "https://www.jaegertracing.io/",
-    image: "/images/stack/jaegertracing.svg",
-  },
-  {
-    name: "GraphQL",
-    link: "https://graphql.org/",
-    image: "/images/stack/GraphQL.svg",
-  },
-  {
-    name: "Three.js",
-    link: "https://threejs.org/",
-    image: "/images/stack/Three.js.svg",
-  },
-  {
-    name: "Heroku",
-    link: "https://www.heroku.com/",
-    image: "/images/stack/Heroku.svg",
-  },
-  {
-    name: "Playwrite", // Corrected from Playwrite to Playwright
-    link: "https://playwright.dev/",
-    image: "/images/stack/Playwrite.svg",
-  },
-  {
-    name: "Portainer",
-    link: "https://www.portainer.io/",
-    image: "/images/stack/Portainer.svg",
-  },
-  {
-    name: "Unity",
-    link: "https://unity.com/",
-    image: "/images/stack/Unity.svg",
-  },
-  {
-    name: "PostgresSQL", // Corrected to PostgreSQL
-    link: "https://www.postgresql.org/",
-    image: "/images/stack/PostgresSQL.svg",
-  },
-  {
-    name: "Python",
-    link: "https://www.python.org/",
-    image: "/images/stack/Python.svg",
-  },
-  {
-    name: "Redis",
-    link: "https://redis.io/",
-    image: "/images/stack/Redis.svg",
-  },
-  {
-    name: "MySQL",
-    link: "https://www.mysql.com/",
-    image: "/images/stack/MySQL.svg",
-  },
-];
+// export const rareStack = [
+//   {
+//     name: "Kubernetes",
+//     link: "https://kubernetes.io/",
+//     image: "/images/stack/Kubernetes.svg",
+//   },
+//   {
+//     name: "Laravel",
+//     link: "https://laravel.com/",
+//     image: "/images/stack/Laravel.svg",
+//   },
+//   {
+//     name: "RabbitMQ",
+//     link: "https://www.rabbitmq.com/",
+//     image: "/images/stack/RabbitMQ.svg",
+//   },
+//   {
+//     name: "arduino",
+//     link: "https://www.arduino.cc/",
+//     image: "/images/stack/arduino.svg",
+//   },
+//   {
+//     name: "Docker",
+//     link: "https://www.docker.com/",
+//     image: "/images/stack/Docker.svg",
+//   },
+//   {
+//     name: "azure",
+//     link: "https://azure.microsoft.com/",
+//     image: "/images/stack/azure.svg",
+//   },
+//   {
+//     name: "Logstash",
+//     link: "https://www.elastic.co/logstash/",
+//     image: "/images/stack/Logstash.svg",
+//   },
+//   {
+//     name: "Rust",
+//     link: "https://www.rust-lang.org/",
+//     image: "/images/stack/Rust.svg",
+//   },
+//   {
+//     name: "Lua",
+//     link: "https://www.lua.org/",
+//     image: "/images/stack/Lua.svg",
+//   },
+//   {
+//     name: "couchdb", // Assuming this is CouchDB
+//     link: "https://couchdb.apache.org/",
+//     image: "/images/stack/couchdb.svg",
+//   },
+//   {
+//     name: "Slack",
+//     link: "https://slack.com/",
+//     image: "/images/stack/Slack.svg",
+//   },
+//   {
+//     name: "Socket.io",
+//     link: "https://socket.io/",
+//     image: "/images/stack/Socket.io.svg",
+//   },
+//   {
+//     name: "Nest.js",
+//     link: "https://nestjs.com/",
+//     image: "/images/stack/Nest.js.svg",
+//   },
+//   {
+//     name: "jQuery",
+//     link: "https://jquery.com/",
+//     image: "/images/stack/jQuery.svg",
+//   },
+//   {
+//     name: "Grafana",
+//     link: "https://grafana.com/",
+//     image: "/images/stack/Grafana.svg",
+//   },
+//   {
+//     name: "Svelte",
+//     link: "https://svelte.dev/",
+//     image: "/images/stack/Svelte.svg",
+//   },
+//   {
+//     name: "jaegertracing", // Corrected from jaepertracing
+//     link: "https://www.jaegertracing.io/",
+//     image: "/images/stack/jaegertracing.svg",
+//   },
+//   {
+//     name: "GraphQL",
+//     link: "https://graphql.org/",
+//     image: "/images/stack/GraphQL.svg",
+//   },
+//   {
+//     name: "Three.js",
+//     link: "https://threejs.org/",
+//     image: "/images/stack/Three.js.svg",
+//   },
+//   {
+//     name: "Heroku",
+//     link: "https://www.heroku.com/",
+//     image: "/images/stack/Heroku.svg",
+//   },
+//   {
+//     name: "Playwrite", // Corrected from Playwrite to Playwright
+//     link: "https://playwright.dev/",
+//     image: "/images/stack/Playwrite.svg",
+//   },
+//   {
+//     name: "Portainer",
+//     link: "https://www.portainer.io/",
+//     image: "/images/stack/Portainer.svg",
+//   },
+//   {
+//     name: "Unity",
+//     link: "https://unity.com/",
+//     image: "/images/stack/Unity.svg",
+//   },
+//   {
+//     name: "PostgresSQL", // Corrected to PostgreSQL
+//     link: "https://www.postgresql.org/",
+//     image: "/images/stack/PostgresSQL.svg",
+//   },
+//   {
+//     name: "Python",
+//     link: "https://www.python.org/",
+//     image: "/images/stack/Python.svg",
+//   },
+//   {
+//     name: "Redis",
+//     link: "https://redis.io/",
+//     image: "/images/stack/Redis.svg",
+//   },
+//   {
+//     name: "MySQL",
+//     link: "https://www.mysql.com/",
+//     image: "/images/stack/MySQL.svg",
+//   },
+// ];

@@ -1,6 +1,10 @@
 import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
