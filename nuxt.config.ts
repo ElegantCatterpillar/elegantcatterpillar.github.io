@@ -48,7 +48,7 @@ export default defineNuxtConfig({
   primevue: {
     options: {
       theme: {
-        preset: Aura,
+        // preset: Aura,
         options: {
           darkModeSelector: ".dark", // Usar la clase 'dark' de Tailwind CSS
           cssLayer: {

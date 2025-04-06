@@ -77,9 +77,9 @@ const handlePersonalPanelChange = (newValue) => {
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
+          <AccordionHeader class="px-2 py-4">
               <div
-                class="flex justify-between items-center w-full px-4 py-3 gap-4"
+                class="flex justify-between items-center w-full px-4"
               >
                 <!-- Added gap-4 -->
                 <div class="flex-1">
@@ -116,7 +116,7 @@ const handlePersonalPanelChange = (newValue) => {
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
+              <div class="flex flex-row px-4 pb-4">
                 <p
                   data-i18n
                   class="text-justify text-gray-600 dark:text-gray-400"
@@ -145,9 +145,9 @@ const handlePersonalPanelChange = (newValue) => {
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
+          <AccordionHeader class="px-2 py-4">
               <div
-                class="flex justify-between items-center w-full px-4 py-3 gap-4"
+                class="flex justify-between items-center w-full px-4"
               >
                 <div class="flex-1">
                   <h4
@@ -183,7 +183,7 @@ const handlePersonalPanelChange = (newValue) => {
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
+              <div class="flex flex-row px-4 pb-4">
                 <p
                   data-i18n
                   class="text-justify text-gray-600 dark:text-gray-400"
@@ -212,9 +212,9 @@ const handlePersonalPanelChange = (newValue) => {
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
+          <AccordionHeader class="px-2 py-4">
               <div
-                class="flex justify-between items-center w-full px-4 py-3 gap-4"
+                class="flex justify-between items-center w-full px-4"
               >
                 <div class="flex-1">
                   <h4
@@ -250,7 +250,7 @@ const handlePersonalPanelChange = (newValue) => {
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
+              <div class="flex flex-row px-4 pb-4">
                 <p
                   data-i18n
                   class="text-justify text-gray-600 dark:text-gray-400"

@@ -84,22 +84,23 @@
               <NuxtLink
                 :aria-label="project.name + ' documentation'"
                 :to="`/works/${project.slug}`"
-                class="flex size-6 items-center justify-center rounded-full bg-white/80 dark:bg-zinc-700/80 shadow-sm transition-all duration-300 hover:bg-white dark:hover:bg-zinc-600"
+                class="flex size-8 items-center justify-center rounded-full bg-white/80 dark:bg-zinc-700/80 shadow-sm transition-all duration-300 hover:bg-white dark:hover:bg-zinc-600"
               >
                 <i
-                  class="pi pi-book text-[10px] text-zinc-700 dark:text-white"
+                  class="pi pi-eye text-[14px] text-zinc-700 dark:text-white"
                 />
               </NuxtLink>
 
               <!-- Icono de flecha (URL externa) -->
               <NuxtLink
                 :aria-label="project.name + ' external link'"
+                v-show="project.link"
                 :to="project.link"
                 target="_blank"
-                class="flex size-6 items-center justify-center rounded-full bg-white/80 dark:bg-zinc-700/80 shadow-sm transition-all duration-300 hover:-rotate-45 hover:bg-white dark:hover:bg-zinc-600"
+                class="flex size-8 items-center justify-center rounded-full bg-white/80 dark:bg-zinc-700/80 shadow-sm transition-all duration-300 hover:-rotate-45 hover:bg-white dark:hover:bg-zinc-600"
               >
                 <i
-                  class="pi pi-arrow-right text-[10px] text-zinc-700 dark:text-white"
+                  class="pi pi-arrow-right text-[14px] text-zinc-700 dark:text-white"
                 />
               </NuxtLink>
             </div>
