@@ -70,5 +70,38 @@
     "description2": "This is where it all began. As a mechatronics engineer, my initial focus was process automation: optimizing functionalities, enhancing equipment safety, and implementing technical improvements. To achieve end-to-end integrations, I transitioned into software development, building over 30 applications (desktop and web) from scratch—each designed to streamline critical operational tasks and address specific production needs. A key achievement was the automation of technical documentation for in-house manufactured components. This not only ensured quality standards but also transformed a manual process into a fully digital workflow. The innovation eliminated paper usage and enabled specialized equipment fabrication in-house, cutting implementation costs and time—with estimated annual savings exceeding $1 million USD."
   },
   "stacks": "Stack",
-  "stacksDescription": "Some of the software and technologies I use on a daily basis"
+  "stacksDescription": "Some of the software and technologies I use on a daily basis",
+  "faq": "FAQ",
+  "faqDescription": "Things people usually ask me about",
+  "servicesfaq": {
+    "q1": "What do you develop?",
+    "q2": "What if I need something customized?",
+    "q3": "Do you provide maintenance after it's done?",
+    "q4": "What other things do you do?",
+    "a1": "I develop software projects from scratch—whether simple or complex apps for any environment (local, industrial, cloud)—including desktop apps, APIs, web, and mobile solutions.",
+    "a2": "Of course! Tell me what you need, and we’ll make it happen.",
+    "a3": "Yes, I offer maintenance packages for updates, adjustments, and backups to keep your project running smoothly.",
+    "a4": "Consulting, automation, databases, and configuring local or cloud servers."
+  },
+  "pricefaq": {
+    "q1": "How much does a project cost?",
+    "q2": "Do you offer discounts?",
+    "q3": "Are prices negotiable?",
+    "a1": "Apps range from $300 to $10,000 USD depending on the project. Maintenance and consulting are $40–150 USD per hour.",
+    "a2": "Usually for first-time clients with simple needs or non-profit organizations.",
+    "a3": "For large or long-term projects, we can negotiate."
+  },
+  "personalfaq": {
+    "q1": "How did you start programming?",
+    "q2": "Do you love what you do?",
+    "q3": "What sets you apart from other programmers?",
+    "q4": "Any advice for someone who wants to be a developer?",
+    "a1": "Funny enough, I started as a Mechatronics Engineer, but challenges in the industry and custom solutions became my passion—one thing led to another.",
+    "a2": "I *love* coding! Learning new things and seeing how my solutions fix people’s problems is awesome. (Though, yeah, it pays the bills too.)",
+    "a3": "Total dedication. I take full ownership of projects, dive deep into every detail, and collaborate closely to meet all user needs. If 100% is expected, I give 120%.",
+    "a4": "First, you’ve gotta love it. Then, just start tinkering and typing away."
+  },
+  "services": "Services",
+  "pricing": "Pricing",
+  "personal": "Personal"
 }

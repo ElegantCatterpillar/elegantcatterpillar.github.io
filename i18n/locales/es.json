@@ -70,5 +70,38 @@
     "description2": "Aquí comenzó todo. Como ingeniero mecatrónico, mi enfoque inicial fue la automatización de procesos: optimizando funcionalidades, reforzando seguridad en equipos e implementando mejoras técnicas. Para lograr integraciones completas, di el salto al desarrollo de software, creando más de 30 aplicaciones (escritorio y web) desde cero, cada una diseñada para agilizar tareas operativas críticas y cubrir necesidades específicas de producción. Un logro clave fue la automatización de la documentación técnica de componentes aquí fabricados, que no solo garantizó estándares de calidad, sino que transformó un proceso manual en uno 100% digital. Esta innovación eliminó el uso de papel y permitió fabricar equipos especializados in-house, reduciendo costos y tiempos de implementación con un ahorro estimado de más de $1 millón de dólares al año."
   },
   "stacks": "Stack",
-  "stacksDescription": "Algunos de los programas y tecnologías que utilizo a diario"
+  "stacksDescription": "Algunos de los programas y tecnologías que utilizo a diario",
+  "faq": "FAQ",
+  "faqDescription": "Las cosas que usualmente me preguntan",
+  "servicesfaq": {
+    "q1": "¿Qué desarrollas?",
+    "q2": "¿Y si necesito algo personalizado?",
+    "q3": "¿Das mantenimiento una vez terminado?",
+    "q4": "¿Qué otras cosas haces?",
+    "a1": "Desarrollo proyectos de software desde cero, desde aplicaciones sencillas o complejas para todo tipo de ambiente (local, industrial, nube) ya sea que funcionen en escritorio, APIs, webs y móviles.",
+    "a2": "¡Claro!, Dime qué necesitas y lo haremos realidad.",
+    "a3": "Sí, ofrezco paquetes de mantenimiento para actualizaciones, ajustes y respaldos para que tu proyecto siga funcionando adecuadamente",
+    "a4": "Consultorías, Automatizaciones, Bases de datos, Configuración de servidores locales y en la nube"
+  },
+  "pricefaq": {
+    "q1": "¿Cuál es el costo del proyecto?",
+    "q2": "¿Das descuentos?",
+    "q3": "¿Ajustas precios?",
+    "a1": "Aplicaciones de 300-10,000 USD dependiendo el tipo de proyecto, Mantenimiento y consultorias de 40-150 USD la hora.",
+    "a2": "Usualmente a primeros clientes en cosas sencillas o instituciones sin fines de lucro.",
+    "a3": "Si el proyecto es grande o será a largo plazo se puede negociar."
+  },
+  "personalfaq": {
+    "q1": "¿Como empezaste a programar?",
+    "q2": "¿Te gusto lo que haces?",
+    "q3": "¿Que te diferencia de otros programadores?",
+    "q4": "¿Algún consejo para alguien que quiere ser desarrollador?",
+    "a1": "Es curioso que comencé como Ingeniero Mecátronico pero los retos en la industria y las soluciones personalizadas siempre fueron mi pasión, así que una cosa llevo a la otra.",
+    "a2": "¡Me encanta programar!, Aprender cosas nuevas y ver como usa mis soluciones que terminan los problemas de las personas. Aunque obviamente de aquí pago las cuentas.",
+    "a3": "La dedicación en el proyecto, hagó completamente mío el proyecto y me involocró para saber bien todo el proceso con todas las personas para satisfacer todas las necesidades de quien lo va a utilizar, siempre del 100% hay que hacer el 120% por uno mismo.",
+    "a4": "Primero que nada te tiene que gustar, de ahí solo quedar mover las manitas."
+  },
+  "services": "Servicios",
+  "pricing": "Precios",
+  "personal": "Personal"
 }

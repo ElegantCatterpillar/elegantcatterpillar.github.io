@@ -1,56 +1,18 @@
 <script setup>
 import { ref } from "vue";
+import { tabs, services, precios, personal } from "~/data/faq";
 
 const activeTab = ref(0);
 const activePanelsServices = ref([]);
 const activePanelsPrices = ref([]);
 const activePanelsPersonal = ref([]);
 
-const tabs = [
-  { label: "Servicios", key: "services" },
-  { label: "Precios", key: "pricing" },
-  { label: "Personal", key: "team" },
-];
-
 // Datos de ejemplo para los accordions
-const servicesItems = ref([
-  {
-    id: 1,
-    question: "¿Qué servicios ofrecen?",
-    answer: "Ofrecemos desarrollo web, diseño UX/UI y consultoría tecnológica.",
-  },
-  {
-    id: 2,
-    question: "¿Tienen soporte 24/7?",
-    answer: "Sí, nuestro equipo de soporte está disponible en todo momento.",
-  },
-]);
+const servicesItems = ref(services);
 
-const pricingItems = ref([
-  {
-    id: 1,
-    question: "¿Cuál es su estructura de precios?",
-    answer: "Trabajamos con precios fijos por proyecto o por hora.",
-  },
-  {
-    id: 2,
-    question: "¿Ofrecen descuentos?",
-    answer: "Sí, para proyectos a largo plazo ofrecemos descuentos especiales.",
-  },
-]);
+const pricingItems = ref(precios);
 
-const teamItems = ref([
-  {
-    id: 1,
-    question: "¿Quiénes son sus desarrolladores?",
-    answer: "Contamos con un equipo de 10 desarrolladores senior.",
-  },
-  {
-    id: 2,
-    question: "¿Dónde están ubicados?",
-    answer: "Tenemos equipos en Latinoamérica y Europa.",
-  },
-]);
+const personalItems = ref(personal);
 
 const handleServicePanelChange = (newValue) => {
   activePanelsServices.value = newValue;
@@ -69,13 +31,13 @@ const handlePersonalPanelChange = (newValue) => {
   <div class="flex flex-col items-center w-full gap-2">
     <div class="flex flex-col items-center justify-center gap-2">
       <h3 data-i18n class="text-white-shadow font-newsreader italic text-2xl">
-        {{ $t("experiences") }}
+        {{ $t("faq") }}
       </h3>
       <p
         data-i18n
         class="text-md font-extralight italic text-neutral-600 dark:text-neutral-400"
       >
-        {{ $t("experiencesDescription") }}
+        {{ $t("faqDescription") }}
       </p>
     </div>
     <!-- Contenedor de los tabs -->
@@ -92,7 +54,7 @@ const handlePersonalPanelChange = (newValue) => {
               activeTab !== index,
           }"
         >
-          {{ tab.label }}
+          <span data-i18n>{{ $t(tab.key) }}</span>
         </Button>
       </div>
     </div>
@@ -115,37 +77,51 @@ const handlePersonalPanelChange = (newValue) => {
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
-              <div class="flex justify-between items-center w-full px-4 py-3">
-                <div class="flex flex-col gap-1 w-3/4">
-                  <h4 class="font-medium text-gray-700 dark:text-gray-300">
-                    {{ item.question }}
+          <AccordionHeader class="px-2 py-4">
+              <div
+                class="flex justify-between items-center w-full px-4"
+              >
+                <!-- Added gap-4 -->
+                <div class="flex-1">
+                  <!-- Changed from w-3/4 to flex-1 -->
+                  <h4
+                    data-i18n
+                    class="font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    {{ $t(item.question) }}
                   </h4>
                 </div>
-                <div
-                  class="flex items-center justify-end w-1/4 italic font-semibold transition-colors duration-300 group-hover:text-primary"
-                >
-                  {{
-                    activePanelsServices.includes(item.id)
-                      ? "Ver menos"
-                      : "Ver más"
-                  }}
-                  <i
-                    class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
-                    :class="{
-                      'transform rotate-pro': activePanelsServices.includes(
-                        item.id
-                      ),
-                    }"
-                  ></i>
+                <div class="flex-shrink-0">
+                  <!-- Changed from w-1/4 to flex-shrink-0 -->
+                  <div
+                    data-i18n
+                    class="flex items-center justify-end italic font-semibold transition-colors duration-300 group-hover:text-primary"
+                  >
+                    {{
+                      activePanelsServices.includes(item.id)
+                        ? $t("seeLess")
+                        : $t("seeMore")
+                    }}
+                    <i
+                      class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
+                      :class="{
+                        'transform rotate-pro': activePanelsServices.includes(
+                          item.id
+                        ),
+                      }"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
-                <p class="text-justify text-gray-600 dark:text-gray-400">
-                  {{ item.answer }}
+              <div class="flex flex-row px-4 pb-4">
+                <p
+                  data-i18n
+                  class="text-justify text-gray-600 dark:text-gray-400"
+                >
+                  {{ $t(item.answer) }}
                 </p>
               </div>
             </AccordionContent>
@@ -169,37 +145,50 @@ const handlePersonalPanelChange = (newValue) => {
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
-              <div class="flex justify-between items-center w-full px-4 py-3">
-                <div class="flex flex-col gap-1 w-3/4">
-                  <h4 class="font-medium text-gray-700 dark:text-gray-300">
-                    {{ item.question }}
+          <AccordionHeader class="px-2 py-4">
+              <div
+                class="flex justify-between items-center w-full px-4"
+              >
+                <div class="flex-1">
+                  <h4
+                    data-i18n
+                    class="font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    {{ $t(item.question) }}
                   </h4>
                 </div>
-                <div
-                  class="flex items-center justify-end w-1/4 italic font-semibold transition-colors duration-300 group-hover:text-primary"
-                >
-                  {{
-                    activePanelsPrices.includes(item.id)
-                      ? "Ver menos"
-                      : "Ver más"
-                  }}
-                  <i
-                    class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
-                    :class="{
-                      'transform rotate-pro': activePanelsPrices.includes(
-                        item.id
-                      ),
-                    }"
-                  ></i>
+
+                <div class="flex-shrink-0">
+                  <!-- Changed from w-1/4 to flex-shrink-0 -->
+                  <div
+                    data-i18n
+                    class="flex items-center justify-end italic font-semibold transition-colors duration-300 group-hover:text-primary"
+                  >
+                    {{
+                      activePanelsPrices.includes(item.id)
+                        ? $t("seeLess")
+                        : $t("seeMore")
+                    }}
+                    <i
+                      class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
+                      :class="{
+                        'transform rotate-pro': activePanelsPrices.includes(
+                          item.id
+                        ),
+                      }"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
-                <p class="text-justify text-gray-600 dark:text-gray-400">
-                  {{ item.answer }}
+              <div class="flex flex-row px-4 pb-4">
+                <p
+                  data-i18n
+                  class="text-justify text-gray-600 dark:text-gray-400"
+                >
+                  {{ $t(item.answer) }}
                 </p>
               </div>
             </AccordionContent>
@@ -218,42 +207,55 @@ const handlePersonalPanelChange = (newValue) => {
           class="flex flex-col gap-3"
         >
           <AccordionPanel
-            v-for="item in teamItems"
+            v-for="item in personalItems"
             :key="item.id"
             :value="item.id"
             class="flex flex-col group rounded-xl border transition duration-300 border-black/10 bg-black/5 hover:bg-black/[0.075] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/[0.075]"
           >
-            <AccordionHeader class="px-2 py-1">
-              <div class="flex justify-between items-center w-full px-4 py-3">
-                <div class="flex flex-col gap-1 w-3/4">
-                  <h4 class="font-medium text-gray-700 dark:text-gray-300">
-                    {{ item.question }}
+          <AccordionHeader class="px-2 py-4">
+              <div
+                class="flex justify-between items-center w-full px-4"
+              >
+                <div class="flex-1">
+                  <h4
+                    data-i18n
+                    class="font-medium text-gray-700 dark:text-gray-300"
+                  >
+                    {{ $t(item.question) }}
                   </h4>
                 </div>
-                <div
-                  class="flex items-center justify-end w-1/4 italic font-semibold transition-colors duration-300 group-hover:text-primary"
-                >
-                  {{
-                    activePanelsPersonal.includes(item.id)
-                      ? "Ver menos"
-                      : "Ver más"
-                  }}
-                  <i
-                    class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
-                    :class="{
-                      'transform rotate-pro': activePanelsPersonal.includes(
-                        item.id
-                      ),
-                    }"
-                  ></i>
+
+                <div class="flex-shrink-0">
+                  <!-- Changed from w-1/4 to flex-shrink-0 -->
+                  <div
+                    data-i18n
+                    class="flex items-center justify-end italic font-semibold transition-colors duration-300 group-hover:text-primary"
+                  >
+                    {{
+                      activePanelsPersonal.includes(item.id)
+                        ? $t("seeLess")
+                        : $t("seeMore")
+                    }}
+                    <i
+                      class="ml-2 pi pi-plus text-md transition-all duration-300 ease-in-out"
+                      :class="{
+                        'transform rotate-pro': activePanelsPersonal.includes(
+                          item.id
+                        ),
+                      }"
+                    ></i>
+                  </div>
                 </div>
               </div>
             </AccordionHeader>
 
             <AccordionContent>
-              <div class="flex flex-row px-4 pt-3">
-                <p class="text-justify text-gray-600 dark:text-gray-400">
-                  {{ item.answer }}
+              <div class="flex flex-row px-4 pb-4">
+                <p
+                  data-i18n
+                  class="text-justify text-gray-600 dark:text-gray-400"
+                >
+                  {{ $t(item.answer) }}
                 </p>
               </div>
             </AccordionContent>

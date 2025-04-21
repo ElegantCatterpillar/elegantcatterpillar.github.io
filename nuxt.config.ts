@@ -1,6 +1,10 @@
 import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
@@ -44,7 +48,7 @@ export default defineNuxtConfig({
   primevue: {
     options: {
       theme: {
-        preset: Aura,
+        // preset: Aura,
         options: {
           darkModeSelector: ".dark", // Usar la clase 'dark' de Tailwind CSS
           cssLayer: {
