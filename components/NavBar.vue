@@ -1,48 +1,45 @@
 <script setup>
-// Estado para manejar el tamaño de la pantalla
 const isSmallScreen = ref(false);
 
-// Función para actualizar el estado del tamaño de la pantalla
-function updateScreenSize() {
-  isSmallScreen.value = window.innerWidth < 800; // 640px es el breakpoint "sm" de Tailwind
-}
+// Usar useWindowSize de @vueuse/core si es posible para mejor manejo
+const updateScreenSize = () => {
+  isSmallScreen.value = process.client && window.innerWidth < 800;
+};
 
-// Escuchar cambios en el tamaño de la pantalla
 onMounted(() => {
-  updateScreenSize(); // Actualizar al montar el componente
-  window.addEventListener("resize", updateScreenSize); // Escuchar cambios de tamaño
+  if (process.client) {
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+  }
 });
 
-// Limpiar el listener al desmontar el componente
-onUnmounted(() => {
-  window.removeEventListener("resize", updateScreenSize);
+onBeforeUnmount(() => {
+  if (process.client) {
+    window.removeEventListener("resize", updateScreenSize);
+  }
 });
 </script>
 
 <template>
-  <div
-    class="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-7xl"
-  >
+  <div class="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-7xl">
     <div class="mx-auto my-4 w-full">
-      <!-- Diseño para pantallas grandes -->
-      <div
-        v-if="!isSmallScreen"
-        class="flex flex-row items-center justify-center gap-4"
-      >
-        <ColorModeButton />
-        <Nav />
-        <LocaleButton />
+      <!-- Pantallas grandes -->
+      <div v-if="!isSmallScreen" class="flex flex-row items-center justify-center gap-4">
+        <ClientOnly>
+          <ColorModeButton />
+          <Nav />
+          <LocaleButton />
+        </ClientOnly>
       </div>
 
-      <!-- Diseño para pantallas pequeñas -->
-      <div
-        v-if="isSmallScreen"
-        class="flex flex-col items-center justify-center gap-4"
-      >
+      <!-- Pantallas pequeñas -->
+      <div v-else class="flex flex-col items-center justify-center gap-4">
         <Nav />
         <div class="flex flex-row gap-4">
-          <ColorModeButton />
-          <LocaleButton />
+          <ClientOnly>
+            <ColorModeButton />
+            <LocaleButton />
+          </ClientOnly>
         </div>
       </div>
     </div>
