@@ -2,17 +2,43 @@
 defineI18nRoute(false);
 const route = useRoute();
 const { slug } = route.params;
-import { projects } from '~/data/projects';
+import { projects } from "~/data/projects";
 
-// Encontrar el proyecto actual
-const project = computed(() => projects.find((p) => p.slug === slug));
+// 1. Encontrar el proyecto base
+const baseProject = projects.find((p) => p.slug === slug);
 
-if (!project.value) {
+if (!baseProject) {
   throw createError({
     statusCode: 404,
     statusMessage: "Project not found",
   });
 }
+
+// 2. Obtener contenido del markdown
+const { data: markdownContent } = await useAsyncData(
+  `project-${slug}`,
+  () =>
+    queryContent(`projects/${slug}`)
+      .findOne()
+      .catch(() => null) // Manejar errores devolviendo null
+);
+
+// 3. Combinar los datos de forma segura
+const project = computed(() => ({
+  ...baseProject,
+  ...(markdownContent.value || {}), // Spread solo si existe
+  // Prioridad: imagen del markdown > imagen del proyecto base
+  image: markdownContent.value?.image || baseProject.image,
+  // Si hay body en el markdown, usamos ese como descripción
+  description: markdownContent.value?.body ? null : baseProject.description,
+}));
+
+// 4. Debug (opcional)
+console.log("Project data:", {
+  base: baseProject,
+  markdown: markdownContent.value,
+  merged: project.value,
+});
 </script>
 
 <template>
@@ -45,18 +71,17 @@ if (!project.value) {
       </div>
 
       <div class="flex gap-3">
-        <!-- Botón de documentación (ahora interno) -->
         <NuxtLink
           to="/works"
           class="flex items-center gap-2 rounded-lg bg-zinc-100 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
         >
           <i class="pi pi-arrow-left text-sm" />
-          Volver atras
+          Volver atrás
         </NuxtLink>
 
         <NuxtLink
+          v-if="project.link"
           :to="project.link"
-          v-show="project.link"
           target="_blank"
           class="flex items-center gap-2 rounded-lg bg-zinc-100 px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
         >
@@ -68,6 +93,7 @@ if (!project.value) {
 
     <!-- Imagen principal -->
     <div
+      v-if="project.image"
       class="mb-8 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-800"
     >
       <NuxtImg
@@ -81,8 +107,14 @@ if (!project.value) {
 
     <!-- Contenido del proyecto -->
     <div class="prose dark:prose-invert max-w-none">
-      <h2>About this project</h2>
-      <p>{{ project.description }}</p>
+      <template v-if="markdownContent?.body">
+        <ContentRenderer :value="markdownContent" />
+      </template>
+
+      <template v-else>
+        <h2>About this project</h2>
+        <p>{{ project.description }}</p>
+      </template>
     </div>
   </div>
 </template>
