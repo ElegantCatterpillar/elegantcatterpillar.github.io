@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     "@primevue/nuxt-module",
     "@nuxtjs/i18n",
     "@nuxt/image",
+    '@nuxt/content',
     "@vueuse/nuxt",
   ],
 
