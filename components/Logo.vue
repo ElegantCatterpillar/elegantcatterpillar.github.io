@@ -1,10 +1,12 @@
 <template>
-  <img
-    :src="logoPath"
-    alt="Logo"
-    aria-label="Logo"
-    class="w-auto h-32"
-  />
+  <ClientOnly>
+    <img
+      :src="logoPath"
+      alt="Logo"
+      aria-label="Logo"
+      class="w-auto h-32"
+    />
+  </ClientOnly>
 </template>
 
 <script setup>
@@ -16,6 +18,7 @@ const colorMode = useColorMode();
 
 // Calculamos la ruta del logo según el tema
 const logoPath = computed(() => {
+  
   return colorMode.value === "dark" ? FirmaCompletaWhite : FirmaCompletaBlack;
 });
 </script>
