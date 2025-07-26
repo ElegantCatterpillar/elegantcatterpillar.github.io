@@ -14,31 +14,12 @@ if (!baseProject) {
   });
 }
 
-// 2. Obtener contenido del markdown
-const { data: markdownContent } = await useAsyncData(
-  `project-${slug}`,
-  () =>
-    queryContent(`projects/${slug}`)
-      .findOne()
-      .catch(() => null) // Manejar errores devolviendo null
-);
-
-// 3. Combinar los datos de forma segura
+// Combinar los datos de forma segura
 const project = computed(() => ({
   ...baseProject,
-  ...(markdownContent.value || {}), // Spread solo si existe
-  // Prioridad: imagen del markdown > imagen del proyecto base
-  image: markdownContent.value?.image || baseProject.image,
-  // Si hay body en el markdown, usamos ese como descripción
-  description: markdownContent.value?.body ? null : baseProject.description,
+  image: baseProject.image,
+  description: baseProject.description,
 }));
-
-// 4. Debug (opcional)
-console.log("Project data:", {
-  base: baseProject,
-  markdown: markdownContent.value,
-  merged: project.value,
-});
 </script>
 
 <template>
@@ -107,14 +88,8 @@ console.log("Project data:", {
 
     <!-- Contenido del proyecto -->
     <div class="prose dark:prose-invert max-w-none">
-      <template v-if="markdownContent?.body">
-        <ContentRenderer :value="markdownContent" />
-      </template>
-
-      <template v-else>
-        <h2>About this project</h2>
-        <p>{{ project.description }}</p>
-      </template>
+      <h2>About this project</h2>
+      <p>{{ project.description }}</p>
     </div>
   </div>
 </template>
